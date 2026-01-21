@@ -4,7 +4,7 @@
 // @description ปุ่มกลับสู่ด้านบน/ด้านล่างที่ใช้งานง่ายทั่วโลก（Top and Down buttons everywhere）
 // @description:it 便捷的全局回到顶部/底部按钮（Top and Down buttons everywhere）
 // @version 1.8-20180308
-// @author Max Max
+// @author Max Max (Mod by KawOatツ)
 // @license MIT
 // @include *
 // @icon     https://raw.githubusercontent.com/KawOat9/icons/main/TopAndDownButtonsEverywhere.png
@@ -20,7 +20,7 @@
 // @match    https://*.cnblogs.com/*
 // @match    https://*.jianshu.com/*
 // @match    http://*.163.com/*
-// @downloadURL https://update.greasyfork.org/scripts/38899/%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8%E5%BA%95%E9%83%A8.user.js
+// @downloadURL:it https://update.greasyfork.org/scripts/38899/%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8%E5%BA%95%E9%83%A8.user.js
 // @updateURL https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/TopAndDownButtonsEverywhere.js
 // ==/UserScript==
 
