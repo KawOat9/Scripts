@@ -3,3 +3,8 @@ ddgksf2013.top
 
 #User Agents
 User-Agent:Quantumult X/1.5.0 (iPhone; iOS 16.0; Scale/3.00)
+
+#ตัวอย่าง UA ที่นิยม
+Loon = User-Agent: Loon/3.2.1
+Surge = User-Agent: Surge iOS/3535
+Quantumult X = User-Agent: Quantumult X/1.5.0 (iPhone; iOS 16.0)
