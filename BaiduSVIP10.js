@@ -42,7 +42,50 @@ if (url.indexOf('/membership/user') !== -1) {
         "reminderSVip": {
             "leftseconds": 9999999999,
             "nextState": "normal"
-        }
+        },
+        "status_data": "超级会员至：2099-12-31",
+  "guide_data": {
+    "action_url": "",
+    "title": "超级会员SVIP",
+    "title_action_url": "",
+    "content": "已拥有极速下载+视频倍速等54项特权",
+    "button": {
+      "text": "等级提升",
+      "action_url": "https://t.me/ddgksf2021"
+    }
+  },
+  "user_status": 2,
+  "tips_data": {},
+  "user_type": "svip",
+  "request_id": 270614190566302800,
+  "level_info": {
+    "last_manual_collection_time": 0,
+    "current_max_points": 500,
+    "current_value": 1490,
+    "accumulated_uncollected_points": 0,
+    "history_level": 3,
+    "v10_id": "",
+    "daily_value": 0,
+    "accumulated_day": 0,
+    "history_value": 3470,
+    "current_level": 2,
+    "accumulated_lost_points": 0,
+    "default_daily_value": 5
+  },
+  "v10_guide": {
+    "get_next_value_gap": true,
+    "tips": "升级还需要1510成长值，可享更多权益",
+    "button": {
+      "text": "立即加速",
+      "action_url": "https://t.me/ddgksf2021"
+    },
+    "ab_test": false
+  },
+  "status_data_arr": [
+    "超级会员至：2099-12-31"
+  ],
+  "tips_data_list": []
+}
     };
     
     // Fake Level Info
