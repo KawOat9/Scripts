@@ -7,11 +7,11 @@
 
 [Rule]
 # เพิ่ม Rule เพื่อให้แน่ใจว่า Traffic วิ่งผ่าน Proxy/Script
-DOMAIN-SUFFIX,baidu.com,PROXY
+#DOMAIN-SUFFIX,baidu.com,PROXY
 
 [Script]
 # Baidu Netdisk SVIP Crack
-http-response ^https?:\/\/pan\.baidu\.com\/(api\/(user\/info|loginStatus|quota)|(rest\/2\.0\/)?membership\/user) script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10.js, requires-body=true, tag=BaiduSVIP
+http-response ^https?:\/\/pan\.baidu\.com\/(api\/(user\/info|loginStatus|quota)|(rest\/2\.0\/)?membership\/user) script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10.js, requires-body=true, tag=BaiduSVIP10
 
 [MITM]
 hostname = pan.baidu.com
