@@ -12,6 +12,6 @@ hostname =pan.baidu.com
 
 #http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP1.js, tag=BaiduSVIP1
 
-#http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP2.js, tag=BaiduSVIP2
+http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP2.js, tag=BaiduSVIP2
 
-http-response ^https:\/\/pan\.baidu\.com\/(rest\/2\.0\/membership\/user|api\/user\/getinfo) script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js, requires-body=true, tag=BaiduSVIP10v2
+#http-response ^https:\/\/pan\.baidu\.com\/(rest\/2\.0\/membership\/user|api\/user\/getinfo) script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js, requires-body=true, tag=BaiduSVIP10v2
