@@ -87,8 +87,8 @@ if (url.indexOf('/membership/user') !== -1) {
 // 4. API: /api/quota (Optional: Fake Storage Space if needed)
 if (url.indexOf('/api/quota') !== -1) {
    obj.expire = false;
-   if(obj.quota) obj.quota = 10995116277760; // 10TB
-   if(obj.total) obj.total = 10995116277760;
+   if(obj.quota) obj.quota = 32985348833280; // 30TB
+   if(obj.total) obj.total = 32985348833280;
 }
 
 $done({ body: JSON.stringify(obj) });
