@@ -1,20 +1,33 @@
-const version = 'V1.0.2';
+/***************
 
-function modifyURLParam(_0x19d32f, _0x5d7f6c, _0x2cbe44) {
-  const _0x3044d5 = new URL(_0x19d32f);
-  const _0x2d8f41 = _0x3044d5.searchParams.get(_0x5d7f6c);
+
+^https:\/\/pan\.baidu\.com\/api\/streaming\?app_id=\d+&type=M3U8_HQ_1080 url script-request-header https://ddgksf2013.top/scripts/bdpan.unlock.js
+^https:\/\/pan\.baidu\.com\/rest\/.*\/membership\/user url script-response-body https://ddgksf2013.top/scripts/bdpan.unlock.js
+
+
+hostname = pan.baidu.com, afd.baidu.com
+
+
+****************/
+
+const version = "V1.0.2";
+function modifyURLParam(url, paramName, newValue) {
+  const u = new URL(url);
+  const oldValue = u.searchParams.get(paramName);
   const _0x1674d1 = /^M3U8.*\d$/;
-  if (_0x1674d1.test(_0x2d8f41)) {
-    _0x3044d5.searchParams.set(_0x5d7f6c, _0x2cbe44);
+  if (_0x1674d1.test(oldValue)) {
+    u.searchParams.set(paramName, newValue);
   }
-  return _0x3044d5.toString();
+  return u.toString();
 }
 if ($request.url.indexOf("api/getsyscfg") != -1) {
   var obj = JSON.parse($response.body);
   const propertiesToDelete = ["switch_config_area", "advertise_", "splash_", "ad_", "ai_", "my_person_service", "home_card_area", "push_active_area", "freeFlow_area", "app_launch_area", "active_sigin_text", "commerce_", "magictrick", "personal_activity_area", "bdpan_feed_home_config_area_v12"];
   for (const key in obj) {
-    if (propertiesToDelete.some(_0x2b6005 => key.includes(_0x2b6005)) && obj[key]) {
-      obj[key].cfg_list = [];
+    if (propertiesToDelete.some(_0x2b6005 => key.includes(_0x2b6005))) {
+      if (obj[key]) {
+        obj[key].cfg_list = [];
+      }
     }
   }
   if (obj.bottom_area?.cfg_list.length > 0) {
@@ -28,12 +41,8 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   });
 } else if ($request.url.indexOf("afd/entry") != -1) {
   var obj = JSON.parse($response.body);
-  if (obj.res.ad) {
-    obj.res.ad = [];
-  }
-  if (obj.res.splash) {
-    obj.res.splash = {};
-  }
+  obj.res.ad &&= [];
+  obj.res.splash &&= {};
   $done({
     body: JSON.stringify(obj)
   });
@@ -117,11 +126,11 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       last_privilege_card: [],
       level_info: {
         history_value: 3470,
-        current_level: 10,
+        current_level: 1,
         last_manual_collection_time: 0,
         current_value: 970,
         history_level: 3,
-        v10_id: "888888"
+        v10_id: ""
       },
       user_tag: "{\\\"has_buy_record\\\":1,\\\"has_buy_vip_svip_record\\\":1,\\\"last_buy_record_creat_time\\\":1688356106,\\\"is_vip\\\":0,\\\"is_svip\\\":1,\\\"last_vip_type\\\":1,\\\"last_vip_svip_end_time\\\":4102415999,\\\"is_svip_sign\\\":0,\\\"notice_user_type\\\":2,\\\"notice_user_status\\\":3,\\\"is_first_act\\\":0,\\\"is_first_charge\\\":0}",
       currenttime: 1690687707,
@@ -152,106 +161,102 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       previous_product_v2: {}
     };
   } else {
-    const _0x16397c = {
-      emotional_tips_back: {
-        first: "很高兴你在x年x月x日成为超级会员，愿美好时光与你相伴。",
-        daily: ["据说超级会员，法力无边"]
-      },
-      expire_remind_tip: "将不再享有极速下载、5T空间等特权",
-      emotional_tip_front: "陪你走过的每一天",
-      identity_icon_list: ["https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452115696/38c1d743bfe9.png", ""],
-      status: 2,
-      expired_tip: "不再享有极速下载、5T空间等特权",
-      guide_tip: ["超级会员尊享5T空间和极速下载特权"],
-      is_sign_user: false
-    };
-    const _0x20db90 = {
-      vip: {
-        emotional_tips_back: {
-          first: "",
-          daily: ["一起走过的每一天，我给了陪伴，而你给了我成长。"]
-        },
-        emotional_tip_front: "陪你走过的每一天",
-        guide_tip: ["墨鱼提醒：已享会员权限！"],
-        expired_tip: "不再享有视频备份、在线解压等特权",
-        expire_remind_tip: "将不再享有视频备份、在线解压等特权",
-        status: 0
-      },
-      vipv2: {
-        status: 1
-      },
-      identity_icon: {
-        vip: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452237582/78b88bf113b7.png",
-        common: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452539056/bf72cf66fae1.png",
-        svip: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452115696/38c1d743bfe9.png",
-        contentvip: ""
-      },
-      request_id: 270055727479044860,
-      svip: _0x16397c,
-      error_code: 0
-    };
     if (obj.identity_icon) {
-      obj = _0x20db90;
-    } else {
-      const _0x39f6ed = {
-        get_next_value_gap: true,
-        tips: "升级还需要1510成长值，可享更多权益",
-        button: {
-          text: "立即加速",
-          action_url: "https://t.me/ddgksf2021"
-        },
-        ab_test: false
-      };
-      const _0x55bd8b = {
-        tips_data_list: [],
-        status_data: "超级会员至：2099-12-31",
-        guide_data: {
-          action_url: "",
-          title: "超级会员SVIP",
-          title_action_url: "",
-          content: "已拥有极速下载+视频倍速等54项特权",
-          button: {
-            text: "等级提升",
-            action_url: "https://t.me/ddgksf2021"
-          }
-        },
-        user_status: 2,
-        tips_data: {},
-        user_type: "svip",
-        request_id: 270614190566302800,
-        level_info: {
-          last_manual_collection_time: 0,
-          current_max_points: 500,
-          current_value: 1490,
-          history_level: 3,
-          accumulated_uncollected_points: 0,
-          v10_id: "",
-          daily_value: 0,
-          accumulated_day: 0,
-          history_value: 3470,
-          current_level: 2,
-          accumulated_lost_points: 0,
-          default_daily_value: 5
-        },
-        v10_guide: _0x39f6ed,
-        status_data_arr: ["超级会员至：2099-12-31"],
-        new_guide_data: {
-          action_url: "",
-          title: "SVIP V2",
-          title_action_url: "",
-          button: {
-            text: "等级提升",
-            action_url: "https://t.me/ddgksf2021"
+      obj = {
+        vip: {
+          emotional_tips_back: {
+            first: "",
+            daily: ["一起走过的每一天，我给了陪伴，而你给了我成长。"]
           },
-          sub_card_list: [{
-            content: "已解锁倍速超清权益",
-            icon_url: "https://staticsns.cdn.bcebos.com/amis/2022-3/1646383463592/%E5%8A%A0%E9%80%9F%E5%8D%87%E7%BA%A7.png",
-            action_url: "https://t.me/ddgksf2021"
-          }]
-        }
+          emotional_tip_front: "陪你走过的每一天",
+          guide_tip: ["墨鱼提醒：已享会员权限！"],
+          expired_tip: "不再享有视频备份、在线解压等特权",
+          expire_remind_tip: "将不再享有视频备份、在线解压等特权",
+          status: 0
+        },
+        vipv2: {
+          status: 1
+        },
+        identity_icon: {
+          vip: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452237582/78b88bf113b7.png",
+          common: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452539056/bf72cf66fae1.png",
+          svip: "https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452115696/38c1d743bfe9.png",
+          contentvip: ""
+        },
+        request_id: 270055727479044860,
+        svip: {
+          emotional_tips_back: {
+            first: "很高兴你在x年x月x日成为超级会员，愿美好时光与你相伴。",
+            daily: ["据说超级会员，法力无边"]
+          },
+          expire_remind_tip: "将不再享有极速下载、5T空间等特权",
+          emotional_tip_front: "陪你走过的每一天",
+          identity_icon_list: ["https://internal-amis-res.cdn.bcebos.com/images/2019-8/1566452115696/38c1d743bfe9.png", ""],
+          status: 2,
+          expired_tip: "不再享有极速下载、5T空间等特权",
+          guide_tip: ["超级会员尊享5T空间和极速下载特权"],
+          is_sign_user: false
+        },
+        error_code: 0
       };
+    } else {
       if (obj.tips_data_list) {
-        obj = _0x55bd8b;
+        obj = {
+          tips_data_list: [],
+          status_data: "超级会员至：2099-12-31",
+          guide_data: {
+            action_url: "",
+            title: "超级会员SVIP",
+            title_action_url: "",
+            content: "已拥有极速下载+视频倍速等54项特权",
+            button: {
+              text: "等级提升",
+              action_url: "https://t.me/ddgksf2021"
+            }
+          },
+          user_status: 2,
+          tips_data: {},
+          user_type: "svip",
+          request_id: 270614190566302800,
+          level_info: {
+            last_manual_collection_time: 0,
+            current_max_points: 500,
+            current_value: 1490,
+            history_level: 3,
+            accumulated_uncollected_points: 0,
+            v10_id: "",
+            daily_value: 0,
+            accumulated_day: 0,
+            history_value: 3470,
+            current_level: 2,
+            accumulated_lost_points: 0,
+            default_daily_value: 5
+          },
+          v10_guide: {
+            get_next_value_gap: true,
+            tips: "升级还需要1510成长值，可享更多权益",
+            button: {
+              text: "立即加速",
+              action_url: "https://t.me/ddgksf2021"
+            },
+            ab_test: false
+          },
+          status_data_arr: ["超级会员至：2099-12-31"],
+          new_guide_data: {
+            action_url: "",
+            title: "SVIP V2",
+            title_action_url: "",
+            button: {
+              text: "等级提升",
+              action_url: "https://t.me/ddgksf2021"
+            },
+            sub_card_list: [{
+              content: "已解锁倍速超清权益",
+              icon_url: "https://staticsns.cdn.bcebos.com/amis/2022-3/1646383463592/%E5%8A%A0%E9%80%9F%E5%8D%87%E7%BA%A7.png",
+              action_url: "https://t.me/ddgksf2021"
+            }]
+          }
+        };
       } else if (obj.recommend_list) {
         obj = {
           error_code: 0
