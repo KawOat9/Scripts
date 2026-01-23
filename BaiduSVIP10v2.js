@@ -130,7 +130,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
         last_manual_collection_time: 0,
         current_value: 970,
         history_level: 9,
-        v10_id: ""
+        v10_id: "999999"
       },
       user_tag: "{\\\"has_buy_record\\\":1,\\\"has_buy_vip_svip_record\\\":1,\\\"last_buy_record_creat_time\\\":1688356106,\\\"is_vip\\\":0,\\\"is_svip\\\":1,\\\"last_vip_type\\\":1,\\\"last_vip_svip_end_time\\\":4102415999,\\\"is_svip_sign\\\":0,\\\"notice_user_type\\\":2,\\\"notice_user_status\\\":3,\\\"is_first_act\\\":0,\\\"is_first_charge\\\":0}",
       currenttime: 1690687707,
