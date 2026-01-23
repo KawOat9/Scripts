@@ -2,6 +2,7 @@
  * Baidu Netdisk SVIP Crack (Network Layer)
  * Adapted for Shadowrocket
  * Covers: Login Status, User Info, Membership Info
+ * Fix: "You are not SVIP" text removal
  */
 
 const url = $request.url;
@@ -33,10 +34,12 @@ if (url.indexOf('/api/user/info') !== -1 && obj.user_info) {
 
 // 3. API: /membership/user
 if (url.indexOf('/membership/user') !== -1) {
-    // --- ตั้งค่า User Tag ตามข้อมูลของคุณ ---
-    obj.user_tag = "{\"has_buy_record\":1,\"has_buy_vip_svip_record\":1,\"last_buy_record_creat_time\":1688356106,\"is_vip\":1,\"is_svip\":1,\"last_vip_type\":1,\"last_vip_svip_end_time\":4102415999,\"is_svip_sign\":0,\"notice_user_type\":2,\"notice_user_status\":3,\"is_first_act\":0,\"is_first_charge\":0}";
+    // --- แก้ไข User Tag: บังคับ vip=1 และปิดสถานะแจ้งเตือน ---
+    // notice_user_type: 1 = Active
+    // notice_user_status: 0 = Normal (No warning)
+    obj.user_tag = "{\"has_buy_record\":1,\"has_buy_vip_svip_record\":1,\"last_buy_record_creat_time\":1688356106,\"is_vip\":1,\"is_svip\":1,\"last_vip_type\":1,\"last_vip_svip_end_time\":4102415999,\"is_svip_sign\":0,\"notice_user_type\":1,\"notice_user_status\":0,\"is_first_act\":0,\"is_first_charge\":0}";
     
-    // --- ตั้งค่าสินค้าปัจจุบัน (Current Product) ---
+    // --- ตั้งค่าสินค้าปัจจุบัน ---
     obj.current_product = {
         "product_id": "12187135090581539740",
         "detail_cluster": "svip",
@@ -44,14 +47,13 @@ if (url.indexOf('/membership/user') !== -1) {
         "product_type": "vip2_1y_auto"
     };
 
-    // อัปเดต v2 ให้เหมือนกัน
     obj.current_product_v2 = obj.current_product;
     
     // เคลียร์ข้อมูลเก่า
     obj.previous_product = [];
     obj.current_mvip_v2 = {};
     
-    // --- สร้างรายการสินค้าจำลอง (Fake Product Info) ---
+    // --- Fake Product Info ---
     const fakeProduct = {
         "product_id": "12187135090581539740",
         "start_time": 1688356106,
@@ -67,11 +69,9 @@ if (url.indexOf('/membership/user') !== -1) {
         "product_description": "SVIP",
         "cur_svip_type": "year"
     };
-    
-    // ใส่เข้าไปใน Array
     obj.product_infos = [fakeProduct];
 
-    // --- Fake Reminder (เพื่อให้แถบแจ้งเตือนเป็น SVIP) ---
+    // --- Fake Reminder ---
     obj.reminder = {
         "svip": {
             "leftseconds": 9999999999,
@@ -83,7 +83,7 @@ if (url.indexOf('/membership/user') !== -1) {
         }
     };
     
-    // --- Fake Level Info (เลเวล 10) ---
+    // --- Fake Level Info ---
     obj.level_info = {
         "current_value": 99999,
         "current_level": 10,
@@ -94,10 +94,10 @@ if (url.indexOf('/membership/user') !== -1) {
     };
 }
 
-// 4. API: /api/quota (ปลดล็อคพื้นที่ 30TB)
+// 4. API: /api/quota (30TB)
 if (url.indexOf('/api/quota') !== -1) {
    obj.expire = false;
-   if(obj.quota) obj.quota = 32985348833280; // 30TB
+   if(obj.quota) obj.quota = 32985348833280; 
    if(obj.total) obj.total = 32985348833280;
 }
 
