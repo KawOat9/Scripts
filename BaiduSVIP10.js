@@ -51,7 +51,7 @@ if (url.indexOf('/membership/user') !== -1) {
         "current_level": 10,
         "history_value": 99999,
         "history_level": 10,
-        "v10_id": "888888",
+        "v10_id": "999999",
         "last_manual_collection_time": 0
     };
 
