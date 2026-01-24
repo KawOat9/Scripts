@@ -46,14 +46,6 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   $done({
     body: JSON.stringify(obj)
   });
-} else if ($request.url.indexOf("api/quota") != -1) {
-  var obj = JSON.parse($response.body);
-  obj.expire = false;
-   if(obj.quota) obj.quota = 32985348833280; // 30TB
-   if(obj.total) obj.total = 32985348833280;
-  $done({
-    body: JSON.stringify(obj)
-  });
 } else if ($request.url.indexOf("feed/cardinfos") != -1) {
   var obj = JSON.parse($response.body);
   if (obj.data?.cards.length > 0) {
@@ -133,12 +125,12 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       up_product_infos: [],
       last_privilege_card: [],
       level_info: {
-        history_value: 3470,
-        current_level: 9,
-        last_manual_collection_time: 0,
-        current_value: 970,
-        history_level: 9,
-        v10_id: ""
+        current_level: 10,
+		current_value: 970,
+		history_value: 3470,
+		history_level: 10,
+		v10_id: "",
+        last_manual_collection_time: 0
       },
       user_tag: "{\\\"has_buy_record\\\":1,\\\"has_buy_vip_svip_record\\\":1,\\\"last_buy_record_creat_time\\\":1688356106,\\\"is_vip\\\":0,\\\"is_svip\\\":1,\\\"last_vip_type\\\":1,\\\"last_vip_svip_end_time\\\":4102415999,\\\"is_svip_sign\\\":0,\\\"notice_user_type\\\":2,\\\"notice_user_status\\\":3,\\\"is_first_act\\\":0,\\\"is_first_charge\\\":0}",
       currenttime: 1690687707,
@@ -272,7 +264,9 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       }
     }
   }
-  $done({body: JSON.stringify(obj)});
+  $done({
+    body: JSON.stringify(obj)
+  });
 } else {
   $done({});
 }
