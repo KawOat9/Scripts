@@ -46,6 +46,14 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   $done({
     body: JSON.stringify(obj)
   });
+} else if ($request.url.indexOf("api/quota") != -1) {
+  var obj = JSON.parse($response.body);
+  obj.expire = false;
+   if(obj.quota) obj.quota = 32985348833280; // 30TB
+   if(obj.total) obj.total = 32985348833280;
+  $done({
+    body: JSON.stringify(obj)
+  });
 } else if ($request.url.indexOf("feed/cardinfos") != -1) {
   var obj = JSON.parse($response.body);
   if (obj.data?.cards.length > 0) {
@@ -264,9 +272,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       }
     }
   }
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else {
   $done({});
 }
