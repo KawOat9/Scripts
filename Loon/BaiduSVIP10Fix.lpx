@@ -7,7 +7,7 @@
 
 [Rule]
 # เพิ่ม Rule เพื่อให้แน่ใจว่า Traffic วิ่งผ่าน Proxy/Script
-DOMAIN-SUFFIX,baidu.com,PROXY
+DOMAIN-SUFFIX,baidu.com
 
 [Script]
 # Baidu Netdisk SVIP Crack
