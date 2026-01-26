@@ -268,10 +268,9 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
     body: JSON.stringify(obj)
   });
 } else if ($request.url.indexOf("api/quota") != -1) {
-  // นี่คือส่วนที่เพิ่มเข้ามาเพื่อจัดการพื้นที่ 30TB
   var obj = JSON.parse($response.body);
   obj.expire = false;
-  obj.quota = 32985348833280; 
+  obj.quota = 32985348833280; // 30TB
   obj.total = 32985348833280; 
   $done({
     body: JSON.stringify(obj)

@@ -1,3 +1,15 @@
+/***************
+
+
+^https:\/\/pan\.baidu\.com\/api\/streaming\?app_id=\d+&type=M3U8_HQ_1080 url script-request-header https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v3.js
+^https:\/\/pan\.baidu\.com\/rest\/.*\/membership\/user url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v3.js
+
+
+hostname = pan.baidu.com, afd.baidu.com
+
+
+****************/
+
 const version = 'V1.0.2';
 
 function modifyURLParam(_0x19d32f, _0x5d7f6c, _0x2cbe44) {
