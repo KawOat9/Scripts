@@ -1,14 +1,23 @@
-/***************
+/************************************
 
+#!name=BaiduCloud SVIP10 Ver.2 ✨
+#!desc=Baidu Netdisk SVIP 1080P / 30T
+#!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!category=🔐APP
+#!openUrl=https://apps.apple.com/app/id547166701
+#!icon=https://raw.githubusercontent.com/KawOat9/icons/main/baiducloud.png
+𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
+[rewrite_local]
 
-^https:\/\/pan\.baidu\.com\/api\/streaming\?app_id=\d+&type=M3U8_HQ_1080 url script-request-header https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js
-^https:\/\/pan\.baidu\.com\/rest\/.*\/membership\/user url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js
+# บังคับ 1080p (แก้ URL)
+^https:\/\/pan\.baidu\.com\/api\/streaming url script-request-header https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js
 
+# ปลอม SVIP / member / quota
+^https?:\/\/pan\.baidu\.com\/(api\/quota|rest\/.*\/membership\/user) url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js
 
 hostname = pan.baidu.com, afd.baidu.com
 
-
-****************/
+************************************/
 
 const version = "V1.0.2"; // Updated version
 function modifyURLParam(p, p2, p3) {
@@ -36,24 +45,18 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   if (obj.my_settings?.cfg_list.length > 0) {
     obj.my_settings.cfg_list = obj.my_settings.cfg_list.filter(p10 => p10.cfg_category_key == "setting_service_area" || p10.cfg_category_key == "setting_function_area");
   }
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("afd/entry") != -1) {
   var obj = JSON.parse($response.body);
   obj.res.ad &&= [];
   obj.res.splash &&= {};
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("feed/cardinfos") != -1) {
   var obj = JSON.parse($response.body);
   if (obj.data?.cards.length > 0) {
     obj.data.cards = obj.data.cards.filter(p11 => p11.source == "product" || p11.source == "recent");
   }
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("api/streaming") != -1) {
   const modifiedURL = modifyURLParam($request.url, "type", "M3U8_AUTO_1080");
   const vO = {
@@ -211,7 +214,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
             content: "已拥有极速下载+视频倍速等54项特权",
             button: {
               text: "等级提升",
-              action_url: "https://t.me/ddgksf2021"
+              action_url: "https://t.me/@KawOat9"
             }
           },
           user_status: 2,
@@ -237,7 +240,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
             tips: "升级还需要1510成长值，可享更多权益",
             button: {
               text: "立即加速",
-              action_url: "https://t.me/ddgksf2021"
+              action_url: "https://t.me/@KawOat9"
             },
             ab_test: false
           },
@@ -248,12 +251,12 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
             title_action_url: "",
             button: {
               text: "等级提升",
-              action_url: "https://t.me/ddgksf2021"
+              action_url: "https://t.me/@KawOat9"
             },
             sub_card_list: [{
               content: "已解锁倍速超清权益",
               icon_url: "https://staticsns.cdn.bcebos.com/amis/2022-3/1646383463592/%E5%8A%A0%E9%80%9F%E5%8D%87%E7%BA%A7.png",
-              action_url: "https://t.me/ddgksf2021"
+              action_url: "https://t.me/@KawOat9"
             }]
           }
         };
@@ -264,17 +267,13 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
       }
     }
   }
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("api/quota") != -1) {
   var obj = JSON.parse($response.body);
   obj.expire = false;
   obj.quota = 32985348833280; // 30TB
   obj.total = 32985348833280; 
-  $done({
-    body: JSON.stringify(obj)
-  });
+  $done({body: JSON.stringify(obj)});
 } else {
   $done({});
 }
