@@ -36,7 +36,6 @@ function showNotification() {
 // --- ฟังก์ชันหลักในการแก้ไขข้อมูล (Recursive Patch) ---
 const version = "V1.0.2"; // Updated version
 function modifyURLParam(p, p2, p3) {
-  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   const v12 = new URL(p);
   const v13 = v12.searchParams.get(p2);
   const v14 = /^M3U8.*\d$/;
@@ -46,6 +45,7 @@ function modifyURLParam(p, p2, p3) {
   return v12.toString();
 }
 if ($request.url.indexOf("api/getsyscfg") != -1) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   var obj = JSON.parse($response.body);
   const propertiesToDelete = ["switch_config_area", "advertise_", "splash_", "ad_", "ai_", "my_person_service", "home_card_area", "push_active_area", "freeFlow_area", "app_launch_area", "active_sigin_text", "commerce_", "magictrick", "personal_activity_area", "bdpan_feed_home_config_area_v12"];
   for (const key in obj) {
@@ -63,11 +63,13 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   }
   $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("afd/entry") != -1) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   var obj = JSON.parse($response.body);
   obj.res.ad &&= [];
   obj.res.splash &&= {};
   $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("feed/cardinfos") != -1) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   var obj = JSON.parse($response.body);
   if (obj.data?.cards.length > 0) {
     obj.data.cards = obj.data.cards.filter(p11 => p11.source == "product" || p11.source == "recent");
@@ -80,6 +82,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   };
   $done(vO);
 } else if ($request.url.indexOf("membership/user") != -1) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   var obj = JSON.parse($response.body);
   if (obj.data?.benefit_list) {
     delete obj.data.benefit_list;
@@ -285,6 +288,7 @@ if ($request.url.indexOf("api/getsyscfg") != -1) {
   }
   $done({body: JSON.stringify(obj)});
 } else if ($request.url.indexOf("api/quota") != -1) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   var obj = JSON.parse($response.body);
   obj.expire = false;
   obj.quota = 32985348833280; // 30TB
