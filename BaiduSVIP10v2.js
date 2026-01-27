@@ -36,6 +36,7 @@ function showNotification() {
 // --- ฟังก์ชันหลักในการแก้ไขข้อมูล (Recursive Patch) ---
 const version = "V1.0.2"; // Updated version
 function modifyURLParam(p, p2, p3) {
+  showNotification(); // เรียกใช้งานการแจ้งเตือนที่นี่
   const v12 = new URL(p);
   const v13 = v12.searchParams.get(p2);
   const v14 = /^M3U8.*\d$/;
