@@ -20,7 +20,7 @@
 hostname = pan.baidu.com, afd.baidu.com
 
 ************************************/
-const APP_NAME = "✨ Baidu Cloud SVIP10 Ver.2 ✨";
+const APP_NAME = "✨ Baidu Cloud SVIP Membership ✨";
 const ID = "baidu_svip10";
 const COOLDOWN = 10 * 60 * 1000; // 10 นาที
 
@@ -29,7 +29,7 @@ function showNotification() {
     let now = Date.now();
     let last = $persistentStore.read(ID + "_time") || 0;
     if (now - last > COOLDOWN) {
-        $notification.post(APP_NAME, "💖 ปลดล็อกฟีเจอร์ SVIP /1080P /30T เรียบร้อย", "ยินดีต้อนรับท่านสมาชิก SVIP ✨");
+        $notification.post(APP_NAME, "💖 ปลดล็อกฟีเจอร์ Super VIP เรียบร้อย", "SVIP 10 ID /Fix 1080P /Fake Storage 30T ✨");
         $persistentStore.write(now.toString(), ID + "_time");
     }
 }
