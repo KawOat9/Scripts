@@ -1,14 +1,14 @@
 #!name=BaiduCloud SVIP10 ✨
 #!desc=Baidu Netdisk SVIP
-#!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!author=KawOat.DEV
 #!category=🔐APP
 #!openUrl=https://apps.apple.com/app/id547166701
 #!icon=https://raw.githubusercontent.com/KawOat9/icons/main/baiducloud.png
 
 [Rule]
 # เพิ่ม Rule เพื่อให้แน่ใจว่า Traffic วิ่งผ่าน Proxy/Script
-# เพื่อป้องกัน Baidu แอบใช้ QUIC หลุด proxy
 DOMAIN-SUFFIX, baidu.com, PROXY
+# บล็อค QUIC เพื่อบังคับให้แอปใช้ HTTP/HTTPS
 PROTOCOL, QUIC, REJECT
 
 [Script]

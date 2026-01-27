@@ -2,11 +2,12 @@
 
 #!name=BaiduCloud SVIP10 Ver.2 ✨
 #!desc=Baidu Netdisk SVIP 1080P / 30T
-#!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!author=KawOat.DEV
 #!category=🔐APP
 #!openUrl=https://apps.apple.com/app/id547166701
 #!icon=https://raw.githubusercontent.com/KawOat9/icons/main/baiducloud.png
 𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
+
 [rewrite_local]
 
 # บังคับ 1080p (แก้ URL)
@@ -15,6 +16,7 @@
 # ปลอม SVIP / member / quota
 ^https?:\/\/pan\.baidu\.com\/(api\/quota|rest\/.*\/membership\/user) url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/BaiduSVIP10v2.js
 
+[mitm]
 hostname = pan.baidu.com, afd.baidu.com
 
 ************************************/
