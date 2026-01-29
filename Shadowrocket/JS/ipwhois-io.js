@@ -28,10 +28,7 @@ $httpClient.get({ url, headers }, (error, response, data) => {
     const msg =
       `IP: ${d.ip}\n` +
       `ISP: ${d.isp || d.connection?.isp || "N/A"}\n` +
-      `ASN: ${d.connection?.asn || "N/A"}\n` +
-      `Loc: ${flag} ${d.country_code || ""} ${d.region || ""} ${d.city || ""}\n` +
-      `Type: ${type}\n` +
-      `Org: ${d.connection?.org || "N/A"}`;
+      `Loc: ${flag} ${d.country_code} ${d.region || ""}\n`;
 
     // แจ้งเตือน
     $notification.post("🌐 IPWho.is Info", "", msg);
