@@ -1,6 +1,6 @@
 /*
 #!name=Photoroom ✨
-#!desc=Unlock Photoroom App (Pro + Business)
+#!desc=Unlock Photoroom App (Pro + Business + Ultra)
 #!category=🔐APP
 #!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
 #!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Photoroom.png
@@ -59,6 +59,12 @@ var obj = {
       "business": {
         "purchase_date": "2024-01-01T01:01:01Z",
         "product_identifier": "com.background.business.yearly",
+        "original_purchase_date": "2024-01-01T01:01:01Z",
+        "expires_date": "9692-01-01T01:01:01Z"
+      },
+      "ultra": {
+        "purchase_date": "2024-01-01T01:01:01Z",
+        "product_identifier": "com.background.ultra.yearly",
         "original_purchase_date": "2024-01-01T01:01:01Z",
         "expires_date": "9692-01-01T01:01:01Z"
       }
