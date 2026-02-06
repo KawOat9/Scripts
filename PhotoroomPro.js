@@ -47,6 +47,11 @@ var obj = {
         "expires_date": "9692-01-01T01:01:01Z",
         "original_purchase_date": "2024-01-01T01:01:01Z",
         "purchase_date": "2024-01-01T01:01:01Z"
+      },
+      "com.background.ultra.yearly": {
+        "expires_date": "9692-01-01T01:01:01Z",
+        "original_purchase_date": "2024-01-01T01:01:01Z",
+        "purchase_date": "2024-01-01T01:01:01Z"
       }
     },
     "entitlements": {
