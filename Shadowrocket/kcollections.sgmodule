@@ -10,7 +10,7 @@ StepsApp_Unlock = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/v
 
 # 2. ปลดล็อกครอบจักรวาล (Universal RevenueCat) - ดักจับแอปทั่วไปที่ใช้ RevenueCat
 # รองรับทั้ง api.revenuecat.com และ api.rc-backup.com
-Universal_RC_Unlock = type=http-response,pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts)\/([^/]+|$),requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BuyRevenueCat%40ddgksf2013.js
+Universal_RC_Unlock = type=http-response,pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts)\/([^/]+|$),requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BuyRevenueCat.js
 
 # 3. ลบ ETag เพื่อป้องกันการจำค่าเดิม (ใช้สคริปต์ที่คุณมี)
 RC_ETag_Cleaner = type=http-request,pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts),script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/deleteHeaderNotif.js
@@ -18,7 +18,7 @@ RC_ETag_Cleaner = type=http-request,pattern=^https:\/\/api\.(revenuecat|rc-backu
 Bazaart = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Bazaart.js, requires-body=true, max-size=-1, timeout=60
 
 # ～ BuyiTunes (Universal iTunes)
-BuyiTunesVip = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BuyiTunes%40ddgksf2013.js, requires-body=true, max-size=-1, timeout=60
+BuyiTunesVip = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/BuyiTunes.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
 hostname = %APPEND% buy.itunes.apple.com, api.revenuecat.com, api.rc-backup.com
