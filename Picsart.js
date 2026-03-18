@@ -35,6 +35,7 @@ function showNotification() {
 // 主脚本函数...
 
 let objc = {
+	showNotification();
   "status" : "success",
   "response" : [
     {
