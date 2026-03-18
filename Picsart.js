@@ -35,7 +35,6 @@ function showNotification() {
 // 主脚本函数...
 
 let objc = {
-	showNotification();
   "status" : "success",
   "response" : [
     {
@@ -71,4 +70,6 @@ let objc = {
     }
   ]
 }
+// เรียกแจ้งเตือน
+showNotification();
 $done({ response: {body: JSON.stringify(objc),status: 200} });
