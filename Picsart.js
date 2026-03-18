@@ -30,6 +30,7 @@ function showNotification() {
     if (now - last > COOLDOWN) {
         $notification.post(APP_NAME, "💖 ปลดล็อกฟีเจอร์ Picsart Gold เรียบร้อย✨");
         $persistentStore.write(now.toString(), ID + "_time");
+	 // $persistentStore.write("0", ID + "_time"); //ลบค่า cache
     }
 }
 // 主脚本函数...
