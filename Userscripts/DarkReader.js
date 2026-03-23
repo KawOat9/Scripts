@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Dark Reader✨
+// @name        Dark Reader
 // @namespace   darkreader.org
 // @version     1.0.0
 // @description Dark Mode for every website
@@ -13,7 +13,7 @@
 
 // Enable when the system color scheme is dark.
 DarkReader.auto({
-    brightness: 100,
-    contrast: 90,
-    sepia: 10
+    brightness: 100, // ความสว่างปกติ
+    contrast: 90, // ลด contrast ลงนิดหน่อย
+    sepia: 10 // โทนออกอุ่นเล็กน้อย
 });
