@@ -9,6 +9,7 @@
 // @version      2.0.0
 // @author       PRO + KawOatツ
 // @description  Dark mode ultimate (toggle + memory + exclude + AMOLED)
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/DarkMode.webp
 // ==/UserScript==
 
 (function () {
