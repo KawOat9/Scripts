@@ -6,9 +6,9 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @require      https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js
-// @version      2.0.0
-// @author       PRO + KawOatツ
-// @description  💀 Dark mode ultimate (toggle + memory + exclude + AMOLED)
+// @version      2.1.0
+// @author       PRO + KawOatツ (Modified)
+// @description  💀 Dark mode ultimate (toggle + memory + exclude + AMOLED + Auto Icon)
 // @icon         https://raw.githubusercontent.com/KawOat9/icons/main/DarkMode.webp
 // ==/UserScript==
 
@@ -55,7 +55,11 @@
 
   // 🎛️ Floating Button
   const btn = document.createElement('div');
-  btn.innerHTML = '🌙';
+  
+  // กำหนดไอคอนเริ่มต้นตามสถานะที่บันทึกไว้
+  btn.innerHTML = enabled ? '☀️' : '🌙'; 
+  
+  // ปรับสีพื้นหลังปุ่มให้ตรงกับสถานะเพื่อความสวยงาม
   btn.style.cssText = `
     position: fixed;
     bottom: 20px;
@@ -64,14 +68,16 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #111;
-    color: #fff;
+    background: ${enabled ? '#333' : '#f0f0f0'};
+    color: ${enabled ? '#fff' : '#000'};
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     font-size: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     opacity: 0.7;
+    transition: all 0.3s ease;
   `;
 
   btn.onmouseover = () => btn.style.opacity = '1';
@@ -81,14 +87,27 @@
   btn.onclick = () => {
     enabled = !enabled;
     GM_setValue('dark_enabled', enabled);
+    
+    // เปลี่ยนไอคอนและสีปุ่มตอนกด
+    btn.innerHTML = enabled ? '☀️' : '🌙';
+    btn.style.background = enabled ? '#333' : '#f0f0f0';
+    btn.style.color = enabled ? '#fff' : '#000';
+    
     apply();
   };
 
   // 🔥 right click = toggle AMOLED
   btn.oncontextmenu = (e) => {
     e.preventDefault();
+    if (!enabled) return; // ป้องกันการเปิด AMOLED ตอนโหมดมืดปิดอยู่
     amoled = !amoled;
     GM_setValue('dark_amoled', amoled);
+    
+    // ลูกเล่นเล็กน้อย: เปลี่ยนไอคอนแป๊บเดียวเพื่อให้รู้ว่าสลับโหมด AMOLED แล้ว
+    const tempIcon = btn.innerHTML;
+    btn.innerHTML = amoled ? '🖤' : tempIcon;
+    setTimeout(() => { btn.innerHTML = tempIcon; }, 500);
+    
     apply();
   };
 

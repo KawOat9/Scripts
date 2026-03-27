@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         💀 Dark Mode PRO+
+// @name         Dark Mode PRO+
 // @namespace    darkreader.org
 // @match        *://*/*
 // @grant        GM_addStyle
@@ -8,7 +8,7 @@
 // @require      https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js
 // @version      3.0.0
 // @author       PRO + KawOatツ
-// @description  Dark mode ultimate (auto + presets + toggle + memory)
+// @description  💀 Dark mode ultimate (auto + presets + toggle + memory)
 // ==/UserScript==
 
 (function () {
