@@ -9,6 +9,7 @@
 // @version      3.0.0
 // @author       PRO + KawOatツ
 // @description  💀 Dark mode ultimate (auto + presets + toggle + memory)
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/DarkModePlus.webp
 // ==/UserScript==
 
 (function () {
