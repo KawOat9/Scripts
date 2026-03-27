@@ -1,81 +1,108 @@
-// ==UserScript==
-// @name         Dark Mode ULTRA
-// @namespace    darkreader.org
-// @match        *://*/*
-// @grant        GM_getValue
-// @grant        GM_setValue
-// @grant        GM_addStyle
-// @require      https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js
-// @version      4.0.0
-// @description  🔥 Ultra: Auto + Day/Night theme + Dracula real + UI + Hotkey
-// ==/UserScript==
+  // #1.
+  // 🎛️ UI PANEL (แบบย่อส่วน + ขยายเมื่อเอาเมาส์ชี้)
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #dm-panel-ultra {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 999999;
+      background: rgba(20, 20, 20, 0.3); /* ปกติจะโปร่งแสง ไม่บังตา */
+      color: #eee;
+      font-family: sans-serif;
+      font-size: 11px;
+      border-radius: 8px;
+      backdrop-filter: blur(3px);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      width: 80px;
+      height: 24px; /* ขนาดตอนหด จะเป็นแค่ปุ่มเล็กๆ */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    #dm-panel-ultra:hover {
+      background: rgba(20, 20, 20, 0.95); /* เข้มขึ้นเมื่อเอาเมาส์ชี้ */
+      width: 120px;
+      height: 200px; /* ขนาดตอนขยายเพื่อแสดงเมนู */
+    }
+    #dm-panel-header {
+      text-align: center;
+      padding: 5px 0;
+      cursor: default;
+      font-weight: bold;
+    }
+    #dm-panel-content {
+      padding: 0 10px 10px 10px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    #dm-panel-ultra:hover #dm-panel-content {
+      opacity: 1;
+    }
+    .dm-btn { cursor: pointer; margin: 4px 0; padding: 2px 0; }
+    .dm-btn:hover { color: #bd93f9; } /* สีม่วง Dracula ตอนชี้ */
+    .dm-hr { margin: 6px 0; border: 0; border-top: 1px solid #444; }
+    .dm-label { color: #888; font-size: 10px; margin-top: 5px; }
+  `;
+  document.head.appendChild(style);
 
-(function () {
-  'use strict';
+  const panel = document.createElement('div');
+  panel.id = 'dm-panel-ultra';
+  panel.innerHTML = `
+    <div id="dm-panel-header">⚙️ ธีมมืด</div>
+    <div id="dm-panel-content">
+      <div id="toggle" class="dm-btn">🌙 เปิดใช้งาน: ${enabled ? 'ON' : 'OFF'}</div>
+      <div id="auto" class="dm-btn">🕒 Auto: ${autoMode ? 'ON' : 'OFF'}</div>
+      <hr class="dm-hr">
+      <div class="dm-label">🌞 กลางวัน:</div>
+      <div class="dm-btn" data-day="soft">» Soft</div>
+      <div class="dm-btn" data-day="default">» Default</div>
+      <hr class="dm-hr">
+      <div class="dm-label">🌙 กลางคืน:</div>
+      <div class="dm-btn" data-night="dracula">» Dracula</div>
+      <div class="dm-btn" data-night="amoled">» AMOLED</div>
+    </div>
+  `;
+  document.body.appendChild(panel);
 
-  // 🎨 THEMES
-  const THEMES = {
-    default: { brightness: 100, contrast: 95, sepia: 0 },
-    amoled:  { brightness: 100, contrast: 100, sepia: 0 },
-    dracula: { brightness: 95, contrast: 90, sepia: 5 },
-    soft:    { brightness: 95, contrast: 90, sepia: 10 }
+  // 🎯 EVENTS
+  panel.querySelector('#toggle').onclick = () => {
+    autoMode = false;
+    enabled = !enabled;
+    GM_setValue('enabled', enabled);
+    GM_setValue('auto', autoMode);
+    apply();
+    updateUI();
   };
 
-  // 🧛 Dracula REAL CSS (โทนแท้)
-  const DRACULA_CSS = `
-    html, body {
-      background: #282a36 !important;
-      color: #f8f8f2 !important;
-    }
-    a { color: #bd93f9 !important; }
-    img, video { filter: brightness(0.9) contrast(1.05); }
-  `;
+  panel.querySelector('#auto').onclick = () => {
+    autoMode = !autoMode;
+    GM_setValue('auto', autoMode);
+    apply();
+    updateUI();
+  };
 
-  // ⚙️ SETTINGS
-  const excludeList = ['youtube.com', 'google.com'];
+  panel.querySelectorAll('[data-day]').forEach(el => {
+    el.onclick = () => {
+      dayTheme = el.dataset.day;
+      GM_setValue('dayTheme', dayTheme);
+      apply();
+    };
+  });
 
-  // 🧠 STATE
-  let enabled   = GM_getValue('enabled', true);
-  let autoMode  = GM_getValue('auto', true);
-  let dayTheme  = GM_getValue('dayTheme', 'soft');
-  let nightTheme= GM_getValue('nightTheme', 'dracula');
+  panel.querySelectorAll('[data-night]').forEach(el => {
+    el.onclick = () => {
+      nightTheme = el.dataset.night;
+      GM_setValue('nightTheme', nightTheme);
+      apply();
+    };
+  });
 
-  const host = location.hostname;
-  if (excludeList.some(d => host.includes(d))) return;
-
-  // 🌗 TIME
-  function isNight() {
-    const h = new Date().getHours();
-    return h >= 18 || h < 6;
+  function updateUI() {
+    panel.querySelector('#auto').textContent = `🕒 Auto: ${autoMode ? 'ON' : 'OFF'}`;
+    panel.querySelector('#toggle').textContent = `🌙 เปิดใช้งาน: ${enabled ? 'ON' : 'OFF'}`;
   }
 
-  function getTheme() {
-    return isNight() ? nightTheme : dayTheme;
-  }
-
-  function apply() {
-    let use = enabled;
-
-    if (autoMode) {
-      use = isNight();
-    }
-
-    DarkReader.disable();
-
-    if (use) {
-      const t = getTheme();
-
-      DarkReader.enable(THEMES[t]);
-
-      // 🧛 apply Dracula CSS เพิ่ม
-      if (t === 'dracula') {
-        GM_addStyle(DRACULA_CSS);
-      }
-    }
-  }
-
-  apply();
-
+  // #2.
     // 📱 UI PANEL สำหรับ iPhone (Touch Friendly)
   const style = document.createElement('style');
   style.innerHTML = `
@@ -173,14 +200,3 @@
   // ปิดเมนูเมื่อแตะที่อื่น
   document.addEventListener('click', () => menu.classList.remove('show'));
   menu.onclick = (e) => e.stopPropagation();
-
-  // ⌨️ HOTKEY (Alt + D)
-  window.addEventListener('keydown', (e) => {
-    if (e.altKey && e.key.toLowerCase() === 'd') {
-      enabled = !enabled;
-      GM_setValue('enabled', enabled);
-      apply();
-    }
-  });
-
-})();
