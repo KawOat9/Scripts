@@ -28,7 +28,7 @@
     img, video { filter: brightness(0.9) contrast(1.05); }
   `;
 
-  const excludeList = ['youtube.com', 'google.com'];
+  const excludeList = ['youtube.com', 'google.com', 'github.com'];
   let enabled = GM_getValue('enabled', true);
   let autoMode = GM_getValue('auto', true);
   let dayTheme = GM_getValue('dayTheme', 'soft');
