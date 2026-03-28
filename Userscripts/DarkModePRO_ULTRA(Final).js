@@ -1,13 +1,15 @@
 // ==UserScript==
-// @name         Dark Mode ULTRA (Mobile Optimized)
+// @name         Dark Mode ULTRA
 // @namespace    darkreader.org
 // @match        *://*/*
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_addStyle
 // @require      https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js
-// @version      4.1.0
+// @version      4.1.0 Fix for iPhone (Touch Friendly)
+// @author       ULTRA + KawOatツ (Modified)
 // @description  🔥 Ultra: Auto + Day/Night + Dracula for iPhone
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/DarkModePlus.webp
 // ==/UserScript==
 
 (function () {
