@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Force User-Agent
 // @version      1.0.0
-// @description  Force User-Agent to Quantumult X for ddgksf2013.top
 // @author       KawOatツ
 // @match        *://ddgksf2013.top/*
+// @match        *://*.ddgksf2013.top/*
 // @icon         https://raw.githubusercontent.com/KawOat9/icons/main/Agent.png
+// @description  Force User-Agent to Quantumult X for ddgksf2013.top
 // @grant        none
 // ==/UserScript==
 
