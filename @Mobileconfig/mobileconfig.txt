@@ -1,0 +1,23 @@
+/var/containers/shared/systemgroup/systemgroup.com.apple.configurationprofiles/library/configurationprofiles
+
+/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles
+
+1) เพิ่ม .mobileconfig ที่แก้ไขแล้วด้วยตนเองเป็นไฟล์ ".stub" ในไดเร็กทอรี "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles" (ดูรูปแบบของไฟล์ .stub อื่น ๆ ในไดเร็กทอรี)
+
+2) เพิ่ม PayloadIdentifier จากไฟล์ .mobileconfig เป็นไฟล์ "PayloadManifest.plist" ในไดเรกทอรี "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles"
+
+ตอนนี้โปรไฟล์ของคุณควรแสดงในเมนู "การตั้งค่า -> ทั่วไป -> โปรไฟล์และการจัดการอุปกรณ์"
+
+3) ลบโปรไฟล์ของคุณโดยใช้เมนูแบบโต้ตอบ มันจะไม่ลบออกจากโครงสร้างเมนู แต่จะไม่ให้ข้อผิดพลาดเช่นกัน
+
+4) ลบไฟล์ ".stub" ของคุณจากขั้นตอน (1)
+
+5) บางที (ฉันจําไม่ได้ว่าฉันทําสิ่งนี้หรือไม่) ลบรายการที่เพิ่มใน "PayloadManifest.plist" (ฉันจําไม่ได้ว่าฉันทําสิ่งนี้หรือไม่)
+
+6) อาจยัง (ฉันจําไม่ได้ว่าฉันทําสิ่งนี้หรือไม่) ลบรายการที่เกี่ยวข้องใน "ProfileTruth.plist" ใน "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles"
+
+7) ลบ "/private/var/Managed Preferences/mobile/com.apple.managedCarrier.plist"
+
+8) ตอนนี้คุณสามารถเพิ่ม (และลบ) ไฟล์ mobileconfig ที่แก้ไขแล้วโดยใช้วิธีการปกติของคุณ
+
+ทั้งหมดนี้ทําบน iPhone ที่เจลเบรคแล้วที่ใช้ 11.3.1
