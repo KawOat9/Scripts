@@ -1,0 +1,23 @@
+name: GitHub Push Notification
+
+on:
+  push:
+    branches:
+      - main   # เปลี่ยนเป็นสาขาที่คุณต้องการตรวจสอบ
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to Push API
+        uses: actions/http-client@v1
+        with:
+          url: http://pushapi_v1.vhost.469571.com/com_xueminkej_en_daibannaozhong/api/create_notification.php
+          method: POST
+          body: |
+            token=576b4c26711928e04a5691ac4ddc097661d9592243084b88ecb8a0b28f6bd36a
+            title=GitHub Repo Update: ${{ github.repository }}
+            message=${{ github.actor }} pushed to ${{ github.ref }} with ${{ github.event.commits.length }} commit(s)
+            time=${{ github.event.head_commit.timestamp }}
+          headers: |
+            Content-Type: application/x-www-form-urlencoded
