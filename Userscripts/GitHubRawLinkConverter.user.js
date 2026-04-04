@@ -4,7 +4,8 @@
 // @version      0.1
 // @description  Automatically convert GitHub links to raw GitHub links
 // @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
-// @match        https://github.com/*
+// @matchBK        https://github.com/*
+// @match        https://github.com/*/*/blob/*
 // @grant        none
 // ==/UserScript==
 
