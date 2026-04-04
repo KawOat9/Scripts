@@ -3,6 +3,7 @@
 // @namespace    GitHub / Script-Hub
 // @version      4.0.0
 // @description  持续渲染按钮；兼容 GitHub SPA；支持 Dark/Light 模式；右下角栈叠；按钮底色 20% 透明；移除 Code Hub 按钮
+// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @match        https://github.com/*
 // @match        https://script.hub/*
 // @match        http://script.hub/*
