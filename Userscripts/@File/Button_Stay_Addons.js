@@ -44,13 +44,15 @@
     // ปุ่ม Stay
     let stayURL = "stay://x-callback-url/install?scriptURL=" + encodeURIComponent(installBtn.href);
     let buttonStay = createButton("Stay", stayURL, 50);
-    installBtn.parentNode.insertBefore(buttonStay, installBtn.nextSibling);
-
+    
     // ปุ่ม Addons
     let encodedURL = btoa(encodeURIComponent(installBtn.href));
     let addonsURL = "addons://installJS?command=20&url=" + encodedURL;
     let buttonAddons = createButton("Addons", addonsURL, 65);
-    installBtn.parentNode.insertBefore(buttonAddons, buttonStay.nextSibling);
+
+    // สลับตำแหน่งของปุ่ม
+    installBtn.parentNode.insertBefore(buttonAddons, installBtn.nextSibling);  // ใส่ปุ่ม Addons ก่อน
+    installBtn.parentNode.insertBefore(buttonStay, buttonAddons.nextSibling); // ใส่ปุ่ม Stay หลัง Addons
 
     // ซ่อนลิงก์ช่วยติดตั้งถ้ามี
     const helpLink = document.querySelector('a.install-help-link');
