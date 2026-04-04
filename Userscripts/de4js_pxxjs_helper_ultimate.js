@@ -4,8 +4,10 @@
 // @description  Ultimate beautify/unreadable code helper for pxxjs & de4js with auto beautify, offline detection, spinner, and error handling
 // @version      2.0.0
 // @icon         https://i.imgur.com/CJ5MfxV.png
-// @author       YourName
+// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @license      MIT
+// @contributor pxxjs helper (https://raw.githubusercontent.com/pxx917144686/pxxjs/main/userscript/pxxjs_helper.user.js)
+// @contributor de4js helper (https://raw.githubusercontent.com/lelinhtinh/de4js/master/userscript/de4js_helper.user.js)
 // @match        *://*/pxxjs/
 // @match        *://*/de4js/
 // @include      http://127.0.0.1:4000/pxxjs/

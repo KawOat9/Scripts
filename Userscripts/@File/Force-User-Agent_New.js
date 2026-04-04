@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Force User-Agent
 // @version      1.1.0
-// @author       KawOatツ
+// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @match        *://ddgksf2013.top/*
 // @match        *://*.ddgksf2013.top/*
 // @icon         https://raw.githubusercontent.com/KawOat9/icons/main/Agent.png
