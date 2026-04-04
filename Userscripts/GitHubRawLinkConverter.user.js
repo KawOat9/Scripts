@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         GitHub Raw Link Converter
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Automatically convert GitHub links to raw GitHub links
+// @version      0.2
+// @description  Automatically convert GitHub file page links (with refs/heads/main) to raw GitHub links
 // @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
-// @matchBK        https://github.com/*
 // @match        https://github.com/*/*/blob/*
+// @match        https://github.com/*/*/refs/heads/*
+// @iconBK       https://raw.githubusercontent.com/KawOat9/icons/main/scripthub.png
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/𝗚𝗜𝗧.𝗥𝗔𝗪𝘪𝘧𝘺.png
 // @grant        none
 // ==/UserScript==
 
@@ -29,7 +31,16 @@
         }
 
         // Process the GitHub link to convert it to a raw link
-        let rawLink = githubLink.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+        let rawLink = githubLink.replace('github.com', 'raw.githubusercontent.com');
+
+        // If the URL contains `/refs/heads/` (e.g., `/refs/heads/main`), replace with `/`
+        if (githubLink.includes('/refs/heads/')) {
+            rawLink = rawLink.replace('/refs/heads/', '/');
+        }
+
+        // If the URL contains `/blob/`, replace it with `/` to get the raw content link
+        rawLink = rawLink.replace('/blob/', '/');
+
         console.log('Converted Raw Link:', rawLink);
 
         // Automatically copy the raw link to clipboard
