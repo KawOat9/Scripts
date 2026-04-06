@@ -1,117 +1,181 @@
 // ==UserScript==
-// @name        GitHub Raw Links
-// @version     0.1
-// @description Add a button to show raw links for GitHub repository files
-// @license     MIT
-// @author      𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
-// @namespace   https://github.com/KawOat9
-// @match       https://github.com/*
-// @run-at      document-idle
-// @grant       GM_addStyle
-// @grant       GM_xmlhttpRequest
-// @grant       GM.xmlHttpRequest
-// @connect     api.github.com
-// @connect     raw.githubusercontent.com
-// @icon        https://github.githubassets.com/pinned-octocat.svg
-// @updateURL   
-// @downloadURL 
+// @name         GitHub Raw Link Opener / Script-Hub Edit (No Popup)
+// @namespace    GitHub / Script-Hub
+// @version      5.0.0
+// @description  Add a button to show raw links for GitHub repository files
+// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @match        https://github.com/*
+// @match        https://script.hub/*
+// @match        http://script.hub/*
+// @match        http://127.0.0.1:9101/*
+// @grant        none
+// @run-at       document-start
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/scripthub.png
 // ==/UserScript==
 
-(() => {
-	"use strict";
+(function () {
+  "use strict";
 
-	GM.addStyle(`
-		.github-raw-links { cursor:pointer; }
-	`);
+  const STACK_ID = "__gku_stack__";
+  let mo, lastUrl = location.href;
 
-	const item = document.createElement("li");
-	item.className = "d-inline-block mr-3";
+  init();
 
-	function addButton(node) {
-		const button = item.cloneNode();
-		button.innerHTML = `
-			<details class="details-reset details-overlay select-menu github-raw-wrapper">
-				<summary class="select-menu-button" aria-haspopup="menu">
-					<span class="github-raw-links" data-menu-button>🍣 Raw URLs</span>
-				</summary>
-				<details-menu class="select-menu-modal position-absolute github-raw-files" style="z-index: 99;" role="menu" aria-label="Raw file links">
-					<div class="select-menu-list">
-						<img src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" width="32">
-					</div>
-				</details-menu>
-			</details>`;
-		node.insertBefore(button, node.childNodes[0]);
-	}
+  function init() {
+    hookHistory();
+    onReady(render);
 
-	function update() {
-		const files = $$(".file");
-		let indx = files.length;
-		if (indx) {
-			while (indx--) {
-				if (!$(".github-raw-links", files[indx])) {
-					addButton($(".file-actions", files[indx]));
-				}
-			}
-		}
-	}
+    window.addEventListener("hashchange", render);
 
-	function addList(link, file) {
-		let html = "";
-		const url = `https://raw.githubusercontent.com${file.href.split("/blob/").slice(-1)}`;
-		html += `
-			<a href="${url}" class="select-menu-item github-raw-file" role="menuitem">
-				${file.textContent.trim()}
-			</a>`;
-		$(".github-raw-files", link.closest("li")).innerHTML = html;
-	}
+    // Detect theme change properly
+    window.matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", render);
 
-	function loadFileList(link) {
-		let el = link.closest("li");
-		el = $("a", el && el.nextElementSibling);
-		if (el) {
-			const path = el.href.split("/").slice(-2).join("/");
-			const repo = window.location.pathname.split("/").slice(1, 3).join("/");
-			const url = `https://api.github.com/repos/${repo}/contents/${path}`;
-			GM.xmlHttpRequest({
-				method : "GET",
-				url : url,
-				onload : response => {
-					if (response.status !== 200) {
-						$(".github-raw-files", link.parentNode).innerHTML = response.message;
-						return console.error(response);
-					}
-					let json = false;
-					try {
-						json = JSON.parse(response.responseText);
-					} catch (err) {
-						return console.error(`Invalid JSON for file ${path}`);
-					}
-					if (json && json.download_url) {
-						addList(link, json);
-					}
-				}
-			});
-		}
-	}
+    setupObserver();
+  }
 
-	function addBindings() {
-		document.addEventListener("click", function(event) {
-			const target = event.target.closest("details");
-			if (target && target.classList.contains("github-raw-wrapper")) {
-				loadFileList(target);
-			}
-		});
-	}
+  // 🔍 Smart observer (ลด spam)
+  function setupObserver() {
+    if (mo) return;
 
-	function $(str, el) {
-		return (el || document).querySelector(str);
-	}
+    mo = new MutationObserver(() => {
+      if (location.href !== lastUrl) {
+        lastUrl = location.href;
+        render();
+      }
+    });
 
-	function $$(str, el) {
-		return Array.from((el || document).querySelectorAll(str));
-	}
+    onReady(() => {
+      mo.observe(document.body, { childList: true, subtree: true });
+    });
+  }
 
-	document.addEventListener("pjax:end", update);
-	update();
-	addBindings();
+  function render() {
+    if (!document.body) return;
+
+    let stack = document.getElementById(STACK_ID);
+
+    // ♻️ reuse stack (ไม่ลบ-สร้างใหม่)
+    if (!stack) {
+      stack = document.createElement("div");
+      stack.id = STACK_ID;
+      stack.style.cssText = `
+        position:fixed;
+        right:12px;
+        bottom:calc(12px + env(safe-area-inset-bottom,0px));
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        z-index:2147483647;
+      `;
+      document.body.appendChild(stack);
+    }
+
+    stack.innerHTML = ""; // เคลียร์เฉพาะปุ่ม
+
+    const isDark = document.documentElement.classList.contains("dark") ||
+                   window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (location.host === "github.com") {
+      stack.appendChild(createButton("🍣 Raw URLs", openRawLink, [0, 200, 83], isDark));
+      stack.appendChild(createButton("🍄 ScriptHub", openScriptHubLink, [156, 39, 176], isDark));
+    }
+
+    if (/script\.hub|127\.0\.0\.1:9101/.test(location.host)) {
+      stack.appendChild(createButton("Open Editor", reEditLink, [255, 152, 0], isDark));
+    }
+  }
+
+  function createButton(text, onClick, rgb, darkMode) {
+    const [r, g, b] = rgb;
+
+    const btn = document.createElement("button");
+    btn.textContent = text;
+
+    Object.assign(btn.style, {
+      background: `rgba(${r},${g},${b},${darkMode ? 0.25 : 0.2})`,
+      color: "#fff",
+      border: `1px solid rgba(${r},${g},${b},${darkMode ? 0.65 : 0.55})`,
+      borderRadius: "14px",
+      padding: "8px 14px",
+      fontSize: "12px",
+      fontWeight: "600",
+      backdropFilter: "blur(8px)",
+      cursor: "pointer",
+      transition: "all 0.15s ease",
+      minWidth: "112px",
+    });
+
+    btn.onmouseenter = () => btn.style.transform = "translateY(-1px)";
+    btn.onmouseleave = () => btn.style.transform = "none";
+    btn.onclick = onClick;
+
+    return btn;
+  }
+
+  // --- 功能 ---
+  function getRawUrl() {
+    let url = location.href;
+
+    // รองรับหลายรูปแบบ
+    if (url.includes("/blob/")) {
+      return url.replace("/blob/", "/").replace("github.com", "raw.githubusercontent.com");
+    }
+
+    if (url.includes("/raw/")) {
+      return url.replace("github.com", "raw.githubusercontent.com");
+    }
+
+    return url;
+  }
+
+  function openRawLink() {
+    const rawUrl = getRawUrl();
+    console.log("Raw URL:", rawUrl);
+    
+    // ใช้การโหลดในหน้าเดียวกันแทนการเปิดในแท็บใหม่
+    window.location.href = rawUrl;
+  }
+
+  function openScriptHubLink() {
+    const url = `https://script.hub/convert/_start_/${getRawUrl()}/_end_/plain.txt`;
+    console.log("ScriptHub URL:", url);
+    
+    // ใช้การโหลดในหน้าเดียวกันแทนการเปิดในแท็บใหม่
+    window.location.href = url;
+  }
+
+  function reEditLink() {
+    const url = location.href.replace(/\/(convert|file)\//, "/edit/");
+    console.log("Re-edit URL:", url);
+    
+    // ใช้การโหลดในหน้าเดียวกันแทนการเปิดในแท็บใหม่
+    window.location.href = url;
+  }
+
+  // --- 工具 ---
+  function onReady(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn, { once: true });
+  }
+
+  function hookHistory() {
+    const push = history.pushState;
+    const replace = history.replaceState;
+
+    history.pushState = function (...args) {
+      const r = push.apply(this, args);
+      render();
+      return r;
+    };
+
+    history.replaceState = function (...args) {
+      const r = replace.apply(this, args);
+      render();
+      return r;
+    };
+
+    window.addEventListener("popstate", render);
+  }
+
 })();

@@ -4,6 +4,7 @@
 // @version      0.2
 // @description  Automatically convert GitHub file page links (with refs/heads/main) to raw GitHub links
 // @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @match        https://github.com/*
 // @match        https://github.com/*/*/blob/*
 // @match        https://github.com/*/*/refs/heads/*
 // @iconBK       https://raw.githubusercontent.com/KawOat9/icons/main/scripthub.png

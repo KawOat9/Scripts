@@ -1,67 +1,79 @@
 // ==UserScript==
-// @name         GitHub Raw Link Opener / Script-Hub Edit (Full Dark/Light Mode)
+// @name         GitHub Raw Link Opener / Script-Hub Edit (Optimized)
 // @namespace    GitHub / Script-Hub
-// @version      4.0.0
-// @description  持续渲染按钮；兼容 GitHub SPA；支持 Dark/Light 模式；右下角栈叠；按钮底色 20% 透明；移除 Code Hub 按钮
-// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @version      5.0.0
+// @description  Smart render, better dark mode detect, performance optimized
+// @author       KawOat ✨
 // @match        https://github.com/*
 // @match        https://script.hub/*
-// @match        http://script.hub/*
 // @match        http://127.0.0.1:9101/*
 // @grant        none
 // @run-at       document-start
 // @icon         https://raw.githubusercontent.com/KawOat9/icons/main/scripthub.png
-// @updateURL    https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_rawlink_opener.user.js
 // ==/UserScript==
 
 (function () {
   "use strict";
 
   const STACK_ID = "__gku_stack__";
-  let mo;
+  let mo, lastUrl = location.href;
 
   init();
 
   function init() {
     hookHistory();
     onReady(render);
+
     window.addEventListener("hashchange", render);
-    setupMutationObserver();
-    // Detect dark/light mode changes
-    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    darkQuery.addEventListener("change", render);
+
+    // Detect theme change properly
+    window.matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", render);
+
+    setupObserver();
   }
 
-  function setupMutationObserver() {
+  // 🔍 Smart observer (ลด spam)
+  function setupObserver() {
     if (mo) return;
+
     mo = new MutationObserver(() => {
-      if (!document.getElementById(STACK_ID)) render();
+      if (location.href !== lastUrl) {
+        lastUrl = location.href;
+        render();
+      }
     });
-    onReady(() => mo.observe(document.documentElement || document.body, { childList: true, subtree: true }));
+
+    onReady(() => {
+      mo.observe(document.body, { childList: true, subtree: true });
+    });
   }
 
   function render() {
     if (!document.body) return;
 
-    const oldStack = document.getElementById(STACK_ID);
-    if (oldStack) oldStack.remove();
+    let stack = document.getElementById(STACK_ID);
 
-    const stack = document.createElement("div");
-    stack.id = STACK_ID;
-    stack.style.cssText = [
-      "position:fixed",
-      "right:12px",
-      "bottom:calc(12px + env(safe-area-inset-bottom,0px))",
-      "display:flex",
-      "flex-direction:column",
-      "gap:8px",
-      "z-index:2147483647",
-      "pointer-events:auto",
-    ].join(";") + ";";
+    // ♻️ reuse stack (ไม่ลบ-สร้างใหม่)
+    if (!stack) {
+      stack = document.createElement("div");
+      stack.id = STACK_ID;
+      stack.style.cssText = `
+        position:fixed;
+        right:12px;
+        bottom:calc(12px + env(safe-area-inset-bottom,0px));
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        z-index:2147483647;
+      `;
+      document.body.appendChild(stack);
+    }
 
-    document.body.appendChild(stack);
+    stack.innerHTML = ""; // เคลียร์เฉพาะปุ่ม
 
-    const isDark = getComputedStyle(document.documentElement).getPropertyValue('--color-bg-primary') || false;
+    const isDark = document.documentElement.classList.contains("dark") ||
+                   window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (location.host === "github.com") {
       stack.appendChild(createButton("Open Raw", openRawLink, [0, 200, 83], isDark));
@@ -69,55 +81,51 @@
     }
 
     if (/script\.hub|127\.0\.0\.1:9101/.test(location.host)) {
-      stack.appendChild(createButton("Open Script-Hub Editor", reEditLink, [255, 152, 0], isDark));
+      stack.appendChild(createButton("Open Editor", reEditLink, [255, 152, 0], isDark));
     }
   }
 
   function createButton(text, onClick, rgb, darkMode) {
     const [r, g, b] = rgb;
-    const bgAlpha = darkMode ? 0.25 : 0.2;
-    const borderAlpha = darkMode ? 0.65 : 0.55;
-    const shadowAlpha = darkMode ? 0.5 : 0.35;
-    const rgba = `rgba(${r},${g},${b},${bgAlpha})`;
-    const border = `rgba(${r},${g},${b},${borderAlpha})`;
-    const shadow = `rgba(${r},${g},${b},${shadowAlpha})`;
 
     const btn = document.createElement("button");
     btn.textContent = text;
-    btn.type = "button";
 
     Object.assign(btn.style, {
-      background: rgba,
+      background: `rgba(${r},${g},${b},${darkMode ? 0.25 : 0.2})`,
       color: "#fff",
-      border: `1px solid ${border}`,
+      border: `1px solid rgba(${r},${g},${b},${darkMode ? 0.65 : 0.55})`,
       borderRadius: "14px",
       padding: "8px 14px",
       fontSize: "12px",
       fontWeight: "600",
-      letterSpacing: ".2px",
-      textShadow: "0 1px 1px rgba(0,0,0,.5)",
-      boxShadow: `0 6px 16px ${shadow}`,
-      cursor: "pointer",
-      userSelect: "none",
-      outline: "none",
-      minWidth: "112px",
       backdropFilter: "blur(8px)",
-      WebkitBackdropFilter: "blur(8px)",
+      cursor: "pointer",
       transition: "all 0.15s ease",
+      minWidth: "112px",
     });
 
-    btn.addEventListener("mouseenter", () => btn.style.boxShadow = `0 10px 22px ${shadow}`);
-    btn.addEventListener("mouseleave", () => btn.style.boxShadow = `0 6px 16px ${shadow}`);
-    btn.addEventListener("mousedown", () => btn.style.transform = "scale(0.98)");
-    btn.addEventListener("mouseup", () => btn.style.transform = "none");
-    btn.addEventListener("click", onClick);
+    btn.onmouseenter = () => btn.style.transform = "translateY(-1px)";
+    btn.onmouseleave = () => btn.style.transform = "none";
+    btn.onclick = onClick;
 
     return btn;
   }
 
   // --- 功能 ---
   function getRawUrl() {
-    return location.href.replace("/blob", "").replace("github.com", "raw.githubusercontent.com");
+    let url = location.href;
+
+    // รองรับหลายรูปแบบ
+    if (url.includes("/blob/")) {
+      return url.replace("/blob/", "/").replace("github.com", "raw.githubusercontent.com");
+    }
+
+    if (url.includes("/raw/")) {
+      return url.replace("github.com", "raw.githubusercontent.com");
+    }
+
+    return url;
   }
 
   function openRawLink() {
@@ -125,7 +133,7 @@
   }
 
   function openScriptHubLink() {
-    const url = `http://script.hub/convert/_start_/${getRawUrl()}/_end_/plain.txt?type=plain-text&target=plain-text`;
+    const url = `https://script.hub/convert/_start_/${getRawUrl()}/_end_/plain.txt`;
     window.open(url, "_blank");
   }
 
@@ -136,24 +144,24 @@
 
   // --- 工具 ---
   function onReady(fn) {
-    if (["complete", "interactive"].includes(document.readyState)) fn();
+    if (document.readyState !== "loading") fn();
     else document.addEventListener("DOMContentLoaded", fn, { once: true });
   }
 
   function hookHistory() {
-    const pushState = history.pushState;
-    const replaceState = history.replaceState;
+    const push = history.pushState;
+    const replace = history.replaceState;
 
     history.pushState = function (...args) {
-      const ret = pushState.apply(this, args);
-      setTimeout(render, 0);
-      return ret;
+      const r = push.apply(this, args);
+      render();
+      return r;
     };
 
     history.replaceState = function (...args) {
-      const ret = replaceState.apply(this, args);
-      setTimeout(render, 0);
-      return ret;
+      const r = replace.apply(this, args);
+      render();
+      return r;
     };
 
     window.addEventListener("popstate", render);
