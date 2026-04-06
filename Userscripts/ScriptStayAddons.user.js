@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         App-Friendly Script Installer
+// @name         Addons & Stay Script Installer
 // @version      0.1.0
 // @description  Add "Stay" & "Addons" buttons to Greasy Fork / Sleazy Fork pages
 // @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
