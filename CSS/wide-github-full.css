@@ -1,14 +1,8 @@
-/* == GitHub Full Width Ultra / Smart == */
-/* Author: KawOat DEV + ChatGPT */
-/* Features:
-   - Auto max width (smart readable limit)
-   - Works with old + new React layouts
-   - Resilient to class name changes
-   - Cleaner spacing + better readability
-*/
+/* == GitHub Full Width ULTIMATE+ (2026 Ready) == */
+/* KawOat DEV x ChatGPT */
 
 /* =========================
-   CONFIG (ปรับได้)
+   CONFIG
 ========================= */
 :root {
   --gh-ultra-max-width: min(96vw, 1800px);
@@ -16,7 +10,7 @@
 }
 
 /* =========================
-   GLOBAL CONTAINER RESET
+   GLOBAL RESET
 ========================= */
 body:not(.wgh-disabled) .application-main,
 body:not(.wgh-disabled) main,
@@ -25,7 +19,7 @@ body:not(.wgh-disabled) [role="main"] {
   width: 100% !important;
 }
 
-/* Container ทุกระดับ */
+/* containers */
 body:not(.wgh-disabled) .container-xl,
 body:not(.wgh-disabled) .container-lg,
 body:not(.wgh-disabled) .container-md {
@@ -37,7 +31,7 @@ body:not(.wgh-disabled) .container-md {
 }
 
 /* =========================
-   SMART CENTER (ไม่ให้ยาวเกิน)
+   SMART CENTER
 ========================= */
 body:not(.wgh-disabled) .application-main > *,
 body:not(.wgh-disabled) main > *,
@@ -48,98 +42,119 @@ body:not(.wgh-disabled) [role="main"] > * {
 }
 
 /* =========================
-   REACT LAYOUT (ใหม่)
+   REACT ROOT
 ========================= */
-
-/* ครอบคลุม layout ใหม่โดยไม่ผูก class ตรง */
 body:not(.wgh-disabled) [data-target="react-app.reactRoot"] {
   width: 100% !important;
 }
 
-/* ยิง container หลักของ React */
-body:not(.wgh-disabled) [data-target="react-app.reactRoot"] > div,
-body:not(.wgh-disabled) [data-target="react-app.reactRoot"] section,
-body:not(.wgh-disabled) [data-target="react-app.reactRoot"] main {
-  max-width: none !important;
-  width: 100% !important;
+/* ยิงครอบทุก layer */
+body:not(.wgh-disabled) [data-target="react-app.reactRoot"] * {
+  max-width: none;
 }
 
-/* ครอบ layout 3 pane / page layout */
+/* =========================
+   LAYOUT SYSTEM (กันพัง)
+========================= */
 body:not(.wgh-disabled) [class*="PageLayout"],
 body:not(.wgh-disabled) [class*="ThreePanesLayout"],
 body:not(.wgh-disabled) [class*="ContentWrapper"],
 body:not(.wgh-disabled) [class*="IssueViewer"],
 body:not(.wgh-disabled) [class*="PullRequest"],
-body:not(.wgh-disabled) [class*="Repository"] {
+body:not(.wgh-disabled) [class*="Repository"],
+body:not(.wgh-disabled) [class*="RepoLayout"],
+body:not(.wgh-disabled) [class*="FileTree"],
+body:not(.wgh-disabled) [class*="TreeView"] {
   max-width: none !important;
   width: 100% !important;
 }
 
 /* =========================
-   CONTENT INNER FIX
+   BOX / CONTENT
 ========================= */
-
-/* Box / card ทุกชนิด */
-body:not(.wgh-disabled) [class*="Box"] {
+body:not(.wgh-disabled) [class*="Box"],
+body:not(.wgh-disabled) [class*="container"] {
   max-width: none !important;
 }
 
-/* Markdown content */
 body:not(.wgh-disabled) .markdown-body {
   max-width: var(--gh-ultra-max-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
-/* Code view */
+/* =========================
+   CODE / DIFF
+========================= */
 body:not(.wgh-disabled) .react-code-view,
-body:not(.wgh-disabled) .blob-wrapper {
-  max-width: none !important;
-}
-
-/* Diff view */
+body:not(.wgh-disabled) .blob-wrapper,
 body:not(.wgh-disabled) .diff-view,
 body:not(.wgh-disabled) .js-diff-container {
   max-width: none !important;
 }
 
 /* =========================
-   SIDEBAR BALANCE
+   TABLE / LIST
 ========================= */
+body:not(.wgh-disabled) table,
+body:not(.wgh-disabled) div[role="grid"] {
+  width: 100% !important;
+  max-width: none !important;
+}
 
-/* ลด margin sidebar ที่ดัน layout */
+body:not(.wgh-disabled) .js-issue-row {
+  max-width: none !important;
+}
+
+/* =========================
+   SIDEBAR FIX
+========================= */
 body:not(.wgh-disabled) .react-repos-overview-margin {
   margin-right: 0 !important;
 }
 
 /* =========================
-   TABLE / LIST FIX
+   🔥 REPO TREE FIX (สำคัญ)
 ========================= */
 
-/* Issue / PR list */
-body:not(.wgh-disabled) .js-issue-row,
-body:not(.wgh-disabled) [aria-label="Issues"],
-body:not(.wgh-disabled) [aria-label="Pull requests"] {
+/* root container */
+body:not(.wgh-disabled) [data-testid="repository-container"],
+body:not(.wgh-disabled) [data-testid="repo-content-pjax-container"] {
   max-width: none !important;
+  width: 100% !important;
 }
 
-/* table */
-body:not(.wgh-disabled) table {
+/* file browser */
+body:not(.wgh-disabled) [class*="RepositoryContent"],
+body:not(.wgh-disabled) [class*="ContentArea"] {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* table files */
+body:not(.wgh-disabled) table[aria-labelledby] {
   width: 100% !important;
 }
 
 /* =========================
-   MEDIA QUERY (Ultra Smart)
+   GRID + OVERFLOW FIX
 ========================= */
+body:not(.wgh-disabled) [style*="grid"] {
+  max-width: none !important;
+}
 
-/* จอใหญ่มาก */
+body:not(.wgh-disabled) .overflow-hidden {
+  overflow: visible !important;
+}
+
+/* =========================
+   MEDIA QUERY
+========================= */
 @media (min-width: 2000px) {
   :root {
     --gh-ultra-max-width: 1900px;
   }
 }
 
-/* จอเล็ก */
 @media (max-width: 768px) {
   :root {
     --gh-ultra-padding: 12px;
@@ -147,19 +162,15 @@ body:not(.wgh-disabled) table {
 }
 
 /* =========================
-   OPTIONAL: COMFORT MODE
+   MODES
 ========================= */
 
-/* เปิดโดยเพิ่ม class: wgh-comfort */
+/* Comfort */
 body.wgh-comfort:not(.wgh-disabled) {
   --gh-ultra-max-width: 1400px;
 }
 
-/* =========================
-   DEBUG (optional)
-========================= */
-/*
-body:not(.wgh-disabled) * {
-  outline: 1px solid red !important;
+/* Full จริง */
+body.wgh-ultra-full:not(.wgh-disabled) {
+  --gh-ultra-max-width: 100vw;
 }
-*/
