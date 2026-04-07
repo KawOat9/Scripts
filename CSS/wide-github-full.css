@@ -1,0 +1,165 @@
+/* == GitHub Full Width Ultra / Smart == */
+/* Author: KawOat DEV + ChatGPT */
+/* Features:
+   - Auto max width (smart readable limit)
+   - Works with old + new React layouts
+   - Resilient to class name changes
+   - Cleaner spacing + better readability
+*/
+
+/* =========================
+   CONFIG (ปรับได้)
+========================= */
+:root {
+  --gh-ultra-max-width: min(96vw, 1800px);
+  --gh-ultra-padding: clamp(12px, 2vw, 32px);
+}
+
+/* =========================
+   GLOBAL CONTAINER RESET
+========================= */
+body:not(.wgh-disabled) .application-main,
+body:not(.wgh-disabled) main,
+body:not(.wgh-disabled) [role="main"] {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Container ทุกระดับ */
+body:not(.wgh-disabled) .container-xl,
+body:not(.wgh-disabled) .container-lg,
+body:not(.wgh-disabled) .container-md {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: var(--gh-ultra-padding) !important;
+  padding-right: var(--gh-ultra-padding) !important;
+  margin: 0 !important;
+}
+
+/* =========================
+   SMART CENTER (ไม่ให้ยาวเกิน)
+========================= */
+body:not(.wgh-disabled) .application-main > *,
+body:not(.wgh-disabled) main > *,
+body:not(.wgh-disabled) [role="main"] > * {
+  max-width: var(--gh-ultra-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   REACT LAYOUT (ใหม่)
+========================= */
+
+/* ครอบคลุม layout ใหม่โดยไม่ผูก class ตรง */
+body:not(.wgh-disabled) [data-target="react-app.reactRoot"] {
+  width: 100% !important;
+}
+
+/* ยิง container หลักของ React */
+body:not(.wgh-disabled) [data-target="react-app.reactRoot"] > div,
+body:not(.wgh-disabled) [data-target="react-app.reactRoot"] section,
+body:not(.wgh-disabled) [data-target="react-app.reactRoot"] main {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* ครอบ layout 3 pane / page layout */
+body:not(.wgh-disabled) [class*="PageLayout"],
+body:not(.wgh-disabled) [class*="ThreePanesLayout"],
+body:not(.wgh-disabled) [class*="ContentWrapper"],
+body:not(.wgh-disabled) [class*="IssueViewer"],
+body:not(.wgh-disabled) [class*="PullRequest"],
+body:not(.wgh-disabled) [class*="Repository"] {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* =========================
+   CONTENT INNER FIX
+========================= */
+
+/* Box / card ทุกชนิด */
+body:not(.wgh-disabled) [class*="Box"] {
+  max-width: none !important;
+}
+
+/* Markdown content */
+body:not(.wgh-disabled) .markdown-body {
+  max-width: var(--gh-ultra-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Code view */
+body:not(.wgh-disabled) .react-code-view,
+body:not(.wgh-disabled) .blob-wrapper {
+  max-width: none !important;
+}
+
+/* Diff view */
+body:not(.wgh-disabled) .diff-view,
+body:not(.wgh-disabled) .js-diff-container {
+  max-width: none !important;
+}
+
+/* =========================
+   SIDEBAR BALANCE
+========================= */
+
+/* ลด margin sidebar ที่ดัน layout */
+body:not(.wgh-disabled) .react-repos-overview-margin {
+  margin-right: 0 !important;
+}
+
+/* =========================
+   TABLE / LIST FIX
+========================= */
+
+/* Issue / PR list */
+body:not(.wgh-disabled) .js-issue-row,
+body:not(.wgh-disabled) [aria-label="Issues"],
+body:not(.wgh-disabled) [aria-label="Pull requests"] {
+  max-width: none !important;
+}
+
+/* table */
+body:not(.wgh-disabled) table {
+  width: 100% !important;
+}
+
+/* =========================
+   MEDIA QUERY (Ultra Smart)
+========================= */
+
+/* จอใหญ่มาก */
+@media (min-width: 2000px) {
+  :root {
+    --gh-ultra-max-width: 1900px;
+  }
+}
+
+/* จอเล็ก */
+@media (max-width: 768px) {
+  :root {
+    --gh-ultra-padding: 12px;
+  }
+}
+
+/* =========================
+   OPTIONAL: COMFORT MODE
+========================= */
+
+/* เปิดโดยเพิ่ม class: wgh-comfort */
+body.wgh-comfort:not(.wgh-disabled) {
+  --gh-ultra-max-width: 1400px;
+}
+
+/* =========================
+   DEBUG (optional)
+========================= */
+/*
+body:not(.wgh-disabled) * {
+  outline: 1px solid red !important;
+}
+*/
