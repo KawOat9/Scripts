@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Force User-Agent
-// @version      1.0.0
+// @version      1.1.0
 // @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @match        *://ddgksf2013.top/*
 // @match        *://*.ddgksf2013.top/*
@@ -13,22 +13,36 @@
     'use strict';
 
     const UA = "Quantumult X/1.5.0 (iPhone; iOS 16.0; Scale/3.00)";
+    const platform = "iPhone";  // Platform for spoofing
+    const appVersion = "5.0 (iPhone; iOS 16.0; Scale/3.00)";
 
-    // 覆盖 navigator.userAgent
-    Object.defineProperty(navigator, 'userAgent', {
-        get: function () {
-            return UA;
-        },
-        configurable: true
-    });
+    // Overriding navigator.userAgent
+    try {
+        Object.defineProperty(navigator, 'userAgent', {
+            get: function () {
+                return UA;
+            },
+            configurable: true
+        });
 
-    // 兼容部分站点
-    Object.defineProperty(navigator, 'appVersion', {
-        get: function () {
-            return UA;
-        },
-        configurable: true
-    });
+        // Overriding navigator.appVersion
+        Object.defineProperty(navigator, 'appVersion', {
+            get: function () {
+                return appVersion;
+            },
+            configurable: true
+        });
 
-    console.log("[UA Spoofed]", navigator.userAgent);
+        // Overriding navigator.platform (optional, but good for consistency)
+        Object.defineProperty(navigator, 'platform', {
+            get: function () {
+                return platform;
+            },
+            configurable: true
+        });
+
+        console.log("[UA Spoofed]", navigator.userAgent);
+    } catch (e) {
+        console.error("Failed to override userAgent properties:", e);
+    }
 })();

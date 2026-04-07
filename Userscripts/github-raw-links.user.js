@@ -77,24 +77,27 @@
                    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (location.host === "github.com") {
-      stack.appendChild(createButton("🍣 Raw URLs", openRawLink, [0, 200, 83], isDark));
-      stack.appendChild(createButton("🍄 ScriptHub", openScriptHubLink, [156, 39, 176], isDark));
+      stack.appendChild(createButton("🍣 Raw URLs", openRawLink, [0, 128, 0], isDark));  // เขียวเข้ม
+      stack.appendChild(createButton("🍄 ScriptHub", openScriptHubLink, [0, 128, 255], isDark));  // ฟ้า
     }
 
     if (/script\.hub|127\.0\.0\.1:9101/.test(location.host)) {
-      stack.appendChild(createButton("Open Editor", reEditLink, [255, 152, 0], isDark));
+      stack.appendChild(createButton("Open Editor", reEditLink, [255, 0, 0], isDark));  // แดง
     }
   }
 
   function createButton(text, onClick, rgb, darkMode) {
     const [r, g, b] = rgb;
 
+    // กำหนดสีข้อความตามโหมด
+    const textColor = darkMode ? "#ffffff" : "#000000";  // ข้อความขาวในโหมดมืด, ข้อความดำในโหมดสว่าง
+
     const btn = document.createElement("button");
     btn.textContent = text;
 
     Object.assign(btn.style, {
       background: `rgba(${r},${g},${b},${darkMode ? 0.25 : 0.2})`,
-      color: "#fff",
+      color: textColor,  // ใช้สีข้อความที่เปลี่ยนตามโหมด
       border: `1px solid rgba(${r},${g},${b},${darkMode ? 0.65 : 0.55})`,
       borderRadius: "14px",
       padding: "8px 14px",
