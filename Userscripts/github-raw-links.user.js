@@ -82,7 +82,7 @@
     }
 
     if (/script\.hub|127\.0\.0\.1:9101/.test(location.host)) {
-      stack.appendChild(createButton("Open Editor", reEditLink, [255, 0, 0], isDark));  // แดง
+      stack.appendChild(createButton("📝 Editor", reEditLink, [255, 0, 0], isDark));  // แดง
     }
   }
 
