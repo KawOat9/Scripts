@@ -1,0 +1,412 @@
+/* ============================================
+   DARK MODE / LIGHT MODE THEME STYLES
+   Default: Dark Mode (when NO .light-mode class)
+   Light Mode: Original site styles (when .light-mode class is present)
+   
+   IMPORTANT: All dark mode styles use body:not(.light-mode) prefix
+   so they ONLY apply when NOT in light mode. Light mode = original site.
+   ============================================ */
+
+/* ============================================
+   DARK MODE STYLES (Only when NOT in light mode)
+   ============================================ */
+
+/* Base - Dark Mode */
+body:not(.light-mode) {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* FontAwesome icons - preserve display */
+body:not(.light-mode) .fa,
+body:not(.light-mode) .fas,
+body:not(.light-mode) .far,
+body:not(.light-mode) .fab,
+body:not(.light-mode) [class^="fa-"],
+body:not(.light-mode) [class*=" fa-"] {
+    color: inherit;
+    font-family: FontAwesome !important;
+}
+
+/* Wrapper and main containers */
+body:not(.light-mode) #wrapper,
+body:not(.light-mode) .wrapper,
+body:not(.light-mode) #main,
+body:not(.light-mode) .main,
+body:not(.light-mode) #main-section,
+body:not(.light-mode) .main-v2,
+body:not(.light-mode) #section-opt,
+body:not(.light-mode) .section-opt {
+    background-color: #121212 !important;
+}
+
+/* Main containers */
+body:not(.light-mode) #primary-bar {
+    background-color: #1a1a2e !important;
+    border-bottom-color: #2d2d44 !important;
+}
+
+/* Navbar - all variations */
+body:not(.light-mode) .navbar,
+body:not(.light-mode) .navbar-spruce,
+body:not(.light-mode) .navbar-default,
+body:not(.light-mode) .navbar-default .navbar-collapse,
+body:not(.light-mode) .navbar-default .navbar-form,
+body:not(.light-mode) nav.navbar,
+body:not(.light-mode) div.navbar {
+    background-color: #1a1a2e !important;
+    border-color: #2d2d44 !important;
+    background-image: none !important;
+}
+
+body:not(.light-mode) .navbar-default .navbar-nav>li>a,
+body:not(.light-mode) .navbar-default .nav>li>a,
+body:not(.light-mode) .navbar .nav>li>a,
+body:not(.light-mode) .navbar-nav>li>a,
+body:not(.light-mode) .nav-link {
+    color: #e0e0e0 !important;
+    background-color: transparent !important;
+}
+
+body:not(.light-mode) .navbar-default .navbar-nav>li>a:hover,
+body:not(.light-mode) .navbar-default .navbar-nav>li>a:focus,
+body:not(.light-mode) .navbar-nav>li>a:hover,
+body:not(.light-mode) .nav-link:hover {
+    color: #FF8CC8 !important;
+    background-color: transparent !important;
+}
+
+body:not(.light-mode) .navbar-toggle,
+body:not(.light-mode) .navbar-default .navbar-toggle {
+    border-color: #444 !important;
+}
+
+body:not(.light-mode) .navbar-default .navbar-toggle .icon-bar {
+    background-color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) #footer {
+    background-color: #0a0a0a !important;
+}
+
+body:not(.light-mode) #copyright {
+    background-color: #0a0a0a !important;
+    border-top-color: #222 !important;
+    color: #888 !important;
+}
+
+/* Content area */
+body:not(.light-mode) #main-section,
+body:not(.light-mode) .main-v2,
+body:not(.light-mode) .container {
+    background-color: transparent !important;
+}
+
+/* Concise section (breadcrumb area) */
+body:not(.light-mode) .concise,
+body:not(.light-mode) .c-breadcrumb-wrapper,
+body:not(.light-mode) .c-breadcrumb {
+    background-color: #1a1a2e !important;
+    background-image: none !important;
+}
+
+/* Latest movie section */
+body:not(.light-mode) .latest-movie,
+body:not(.light-mode) .movie-opt,
+body:not(.light-mode) .movie-heading {
+    background-color: #121212 !important;
+}
+
+/* Cards and boxes */
+body:not(.light-mode) .movie-container,
+body:not(.light-mode) .latest-movie-img-container {
+    background-color: transparent !important;
+}
+
+body:not(.light-mode) .sidebar,
+body:not(.light-mode) .panel,
+body:not(.light-mode) .well {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .panel-default>.panel-heading {
+    background-color: #252525 !important;
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Text colors */
+body:not(.light-mode) .movie-title h3,
+body:not(.light-mode) .movie-title h1 a,
+body:not(.light-mode) .movie-title a {
+    color: #fff !important;
+}
+
+body:not(.light-mode) .sm-heading a {
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) .sm-heading a:hover {
+    color: #FF8CC8 !important;
+}
+
+body:not(.light-mode) h1,
+body:not(.light-mode) h2,
+body:not(.light-mode) h3,
+body:not(.light-mode) h4,
+body:not(.light-mode) h5,
+body:not(.light-mode) h6 {
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) p {
+    color: #b0b0b0 !important;
+}
+
+body:not(.light-mode) .movie-desc,
+body:not(.light-mode) .text-muted {
+    color: #888 !important;
+}
+
+/* Links */
+body:not(.light-mode) a {
+    color: #82b1ff;
+}
+
+body:not(.light-mode) a:hover {
+    color: #FF8CC8;
+}
+
+/* Form controls */
+body:not(.light-mode) .form-control {
+    background-color: #2d2d44 !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) .form-control:focus {
+    border-color: #FF8CC8 !important;
+    box-shadow: 0 0 5px rgba(255, 140, 200, 0.3) !important;
+}
+
+body:not(.light-mode) .form-control::placeholder {
+    color: #888 !important;
+}
+
+/* Dropdowns */
+body:not(.light-mode) .dropdown-menu {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .dropdown-menu>li>a {
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) .dropdown-menu>li>a:hover,
+body:not(.light-mode) .dropdown-menu>li>a:focus {
+    background-color: #2d2d44 !important;
+    color: #FF8CC8 !important;
+}
+
+/* Buttons */
+body:not(.light-mode) .btn-default {
+    background-color: #2d2d44 !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) .btn-default:hover {
+    background-color: #3d3d5c !important;
+    color: #fff !important;
+}
+
+/* Video info bar */
+body:not(.light-mode) .video-info-bar {
+    background-color: #1e1e1e !important;
+}
+
+body:not(.light-mode) .video-info-bar ul li {
+    border-color: #333 !important;
+    color: #b0b0b0 !important;
+}
+
+/* Servers/Episodes */
+body:not(.light-mode) #servers {
+    background-color: #1a1a2e !important;
+}
+
+body:not(.light-mode) #servers .server {
+    background-color: #252538 !important;
+}
+
+body:not(.light-mode) #servers .server .name {
+    color: #b0b0b0 !important;
+}
+
+/* Breadcrumb and page header */
+body:not(.light-mode) .breadcrumb,
+body:not(.light-mode) ol.breadcrumb {
+    background-color: #1a1a2e !important;
+}
+
+body:not(.light-mode) .breadcrumb>li,
+body:not(.light-mode) .breadcrumb>li>a {
+    color: #888 !important;
+}
+
+body:not(.light-mode) .breadcrumb>.active {
+    color: #FF8CC8 !important;
+}
+
+/* Page/Section containers */
+body:not(.light-mode) .section-header,
+body:not(.light-mode) .section-title,
+body:not(.light-mode) .page-header,
+body:not(.light-mode) .content-header,
+body:not(.light-mode) .heading-title,
+body:not(.light-mode) .movie-section-header {
+    background-color: transparent !important;
+    color: #e0e0e0 !important;
+}
+
+/* Row backgrounds */
+body:not(.light-mode) .row {
+    background-color: transparent !important;
+}
+
+/* Pagination */
+body:not(.light-mode) .pagination {
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .pagination>li>a {
+    background-color: transparent !important;
+    color: #b0b0b0 !important;
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .pagination>li>a:hover {
+    color: #FF8CC8 !important;
+}
+
+/* Tables */
+body:not(.light-mode) .table>thead>tr>th,
+body:not(.light-mode) .table>tbody>tr>td {
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body:not(.light-mode) .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #1a1a1a !important;
+}
+
+/* Alerts */
+body:not(.light-mode) .alert {
+    border-color: #333 !important;
+}
+
+/* Modal */
+body:not(.light-mode) .modal-content {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .modal-header,
+body:not(.light-mode) .modal-footer {
+    border-color: #333 !important;
+}
+
+/* Anterior/Concise sections */
+body:not(.light-mode) .anterior {
+    background-color: #1a1a2e !important;
+}
+
+body:not(.light-mode) .concise {
+    background-color: #151520 !important;
+}
+
+/* Genre/Description tags */
+body:not(.light-mode) .genre a,
+body:not(.light-mode) .genre p,
+body:not(.light-mode) .description p {
+    background-color: #2d2d44 !important;
+    border-color: #3d3d5c !important;
+    color: #e0e0e0 !important;
+}
+
+/* Search */
+body:not(.light-mode) .search.open {
+    background-color: #1e1e1e !important;
+    border-color: #FF8CC8 !important;
+}
+
+body:not(.light-mode) .search-box {
+    color: #e0e0e0 !important;
+}
+
+/* Title bar */
+body:not(.light-mode) #title-bar {
+    border-color: #333 !important;
+}
+
+body:not(.light-mode) .page-title h1 {
+    color: #FF8CC8 !important;
+}
+
+/* Movie title overlay */
+body:not(.light-mode) .movie-title {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON (Always visible)
+   ============================================ */
+
+.btn-theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF8CC8 0%, #b366ff 100%);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 140, 200, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 140, 200, 0.6);
+}
+
+.btn-theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.btn-theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.btn-theme-toggle:hover i {
+    transform: rotate(20deg);
+}
+
+/* Light mode button style */
+.light-mode .btn-theme-toggle {
+    background: linear-gradient(135deg, #333 0%, #555 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .btn-theme-toggle:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,1 @@
+$(function(){$(".lazy").lazy({effect:"fadeIn",effectTime:1e3,threshold:0})}),document.addEventListener("touchstart",function(e){console.log(e.defaultPrevented),e.preventDefault(),console.log(e.defaultPrevented)},Modernizr.passiveeventlisteners?{passive:!0}:!1);
