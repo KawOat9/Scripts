@@ -8,7 +8,7 @@
 // @match        https://github.com/*/*/blob/*
 // @match        https://github.com/*/*/refs/heads/*
 // @iconBK       https://raw.githubusercontent.com/KawOat9/icons/main/scripthub.png
-// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/Git/𝗚𝗜𝗧.𝗥𝗔𝗪𝘪𝘧𝘺.webp
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/Git/𝗚𝗜𝗧.𝗥𝗔𝗪𝘪𝘧𝘺.png
 // @grant        none
 // ==/UserScript==
 
