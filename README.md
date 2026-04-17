@@ -1,6 +1,6 @@
 ## 📁 **Scripts Repo**
 
-#### 🔗 Quick Access
+### 🔗 Quick Access
 
 - 📁 **Scripts Repo** → [Scripts](https://github.com/KawOat9/Scripts)  
 - 🚀 **Shadowrocket** → [Shadowrocket](https://github.com/KawOat9/Scripts/tree/main/Shadowrocket)  
