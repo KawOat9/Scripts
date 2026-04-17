@@ -1,13 +1,11 @@
 // ==UserScript==
 // @name               Github Copy Raw File URL and Download File
-// @name:en            Github Copy original file URL with download files
 // @name:th            Github คัดลอกไฟล์ต้นฉบับ URL พร้อมดาวน์โหลดไฟล์
-// @description:en     Add button at the end of each file line，to copy the original file URL and download files
-// @description:th     เพิ่มปุ่มที่ท้ายแต่ละบรรทัดไฟล์，เพื่อคัดลอกไฟล์ต้นฉบับ URL และดาวน์โหลดไฟล์
 // @description        Add buttons at the end of each file line to copy the raw file URL and download the file
+// @description:th     เพิ่มปุ่มที่ท้ายแต่ละบรรทัดไฟล์，เพื่อคัดลอกไฟล์ต้นฉบับ URL และดาวน์โหลดไฟล์
 // @namespace          https://github.com/ChinaGodMan/UserScripts
 // @version            2.2.0.22
-// @author             Kamikaze (https://github.com/Kamiikaze) ,人民的勤务员 <china.qinwuyuan@gmail.com>
+// @author             Kamikaze , 𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @match              https://github.com/*
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // @iconbak            https://github.githubassets.com/pinned-octocat.svg

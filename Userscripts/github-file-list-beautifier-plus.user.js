@@ -2,7 +2,6 @@
 // @name               GitHub file list beautifier
 // @name:th            GitHub โปรแกรมตกแต่งรายการไฟล์
 // @description        Adds colors to files by type, displays small images in place of file-type icons in a repository source tree
-// @description:en     GitHub File List Beautifier is a user script，used to enhance GitHub Display effect of files in warehouse。It can add colors to files and folders，and replace the file type icons with small images，Makes the code base easier to browse and manage。Add colors and icons to files by type，Display small images in place of file type icons in repository source tree
 // @description:th     GitHub File List Beautifier เป็นสคริปต์ผู้ใช้，ใช้เพื่อเพิ่มประสิทธิภาพ GitHub แสดงเอฟเฟกต์ของไฟล์ในคลังสินค้า。สามารถเพิ่มสีสันให้กับไฟล์และโฟลเดอร์ได้，และแทนที่ไอคอนประเภทไฟล์ด้วยรูปภาพขนาดเล็ก，ทำให้ฐานโค้ดง่ายต่อการเรียกดูและจัดการ。เพิ่มสีและไอคอนให้กับไฟล์ตามประเภท，แสดงรูปภาพขนาดเล็กแทนที่ไอคอนประเภทไฟล์ในแผนผังแหล่งเก็บข้อมูล
 // @license            MIT
 // @version            2026.3.5.1
@@ -16,7 +15,7 @@
 // @compatible         edge
 // @compatible         opera
 // @compatible         safari
-// @author             wOxxOm,人民的勤务员 <china.qinwuyuan@gmail.com>
+// @author             wOxxOm,人民的勤务员,𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @namespace          https://github.com/ChinaGodMan/UserScripts
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // @license            MIT
