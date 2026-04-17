@@ -1,4 +1,4 @@
-## 📁 **Scripts Repo**
+## 🧩 **Userscripts**
 
 ### 🔗 Quick Access
 
