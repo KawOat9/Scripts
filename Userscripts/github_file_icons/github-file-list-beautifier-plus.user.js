@@ -15,10 +15,10 @@
 // @compatible         edge
 // @compatible         opera
 // @compatible         safari
-// @author             wOxxOm,人民的勤务员,𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
-// @namespace          https://github.com/ChinaGodMan/UserScripts
-// @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // @license            MIT
+// @author             wOxxOm,人民的勤务员,𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
+// @namespace          https://github.com/ChinaGodMan/UserScripts
 // @homepageURL        https://github.com/ChinaGodMan/UserScripts/tree/main/github-file-list-beautifier-plus
 
 // ==/UserScript==
