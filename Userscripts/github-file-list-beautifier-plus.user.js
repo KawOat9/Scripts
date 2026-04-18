@@ -19,9 +19,7 @@
 // @namespace          https://github.com/ChinaGodMan/UserScripts
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // @license            MIT
-// @supportURL         https://github.com/ChinaGodMan/UserScripts/issues
-// @homepageURL        https://github.com/ChinaGodMan/UserScripts
-// @homepage           https://github.com/ChinaGodMan/UserScripts
+// @homepageURL        https://github.com/ChinaGodMan/UserScripts/tree/main/github-file-list-beautifier-plus
 
 // ==/UserScript==
 

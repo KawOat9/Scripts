@@ -8,12 +8,9 @@
 // @author             Kamikaze , 𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
 // @match              https://github.com/*
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
-// @iconbak            https://github.githubassets.com/pinned-octocat.svg
 // @run-at             document-ready
 // @license            MIT
-// @supportURL         https://github.com/ChinaGodMan/UserScripts/issues
 // @homepageURL        https://github.com/ChinaGodMan/UserScripts
-// @homepage           https://github.com/ChinaGodMan/UserScripts
 // ==/UserScript==
 
 
