@@ -64,7 +64,7 @@ const config = Object.assign({},
         colorSeed3: 179426453
     }).map(([k, v]) => ({ [k]: +savedConfig[k] || v })))
 const IMG_CLS = 'wOxxOm-image-icon'
-const rxImages = /^(png|jpe?g|bmp|gif|cur|ico|svg)$/i
+const rxImages = /^(png|jpe?g|bmp|gif|webp|cur|ico|svg)$/i
 const styleQueue = []
 const { sheet } = document.documentElement.appendChild($create('style', {
     textContent: /*language=CSS*/ `
