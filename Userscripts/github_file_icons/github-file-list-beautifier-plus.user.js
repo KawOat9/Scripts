@@ -33,7 +33,8 @@ if (DEBUG) {
 if (Object.keys(customColors).length === 0) {
     GM_xmlhttpRequest({
         method: 'GET',
-        url: 'https://raw.githubusercontent.com/ChinaGodMan/UserScripts/main/github-file-list-beautifier-plus/colors.json',
+        url: 'https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/colors.json',
+        //url: 'https://raw.githubusercontent.com/ChinaGodMan/UserScripts/main/github-file-list-beautifier-plus/colors.json',
         //url: 'http://127.0.0.1:5500/UserScripts/Script%20details/github-file-list-beautifier-plus/colors.json',
         onload: function (response) {
             try {
