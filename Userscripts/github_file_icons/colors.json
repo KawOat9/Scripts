@@ -175,7 +175,7 @@
     "color": "#cccccc",
     "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/loon.svg"
   },
-  "sgmodule": {
+  ".sgmodule": {
     "color": "#cccccc",
     "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/rocket2.png"
   },
