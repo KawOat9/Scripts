@@ -163,8 +163,24 @@
     "color": "#42a5f5",
     "icon": "document"
   },
-  "backup": {
-    "color": "#e44b23",
-    "icon": "folder-backup"
+  "conf": {
+    "color": "#cccccc",
+    "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/configuration.svg"
+  },
+  "lpx": {
+    "color": "#cccccc",
+    "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/loon.svg"
+  },
+  "plugin": {
+    "color": "#cccccc",
+    "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/loon.svg"
+  },
+  "sgmodule": {
+    "color": "#cccccc",
+    "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/rocket2.svg"
+  },
+  "module": {
+    "color": "#cccccc",
+    "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/rocket2.svg"
   }
 }
