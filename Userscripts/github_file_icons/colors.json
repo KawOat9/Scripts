@@ -163,7 +163,7 @@
     "color": "#42a5f5",
     "icon": "document"
   },
-  "conf": {
+  ".conf": {
     "color": "#cccccc",
     "icon": "https://raw.githubusercontent.com/KawOat9/Scripts/main/Userscripts/github_file_icons/icons/configuration.svg"
   },
