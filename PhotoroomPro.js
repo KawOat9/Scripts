@@ -48,7 +48,7 @@ var obj = {
         "original_purchase_date": "2024-01-01T01:01:01Z",
         "purchase_date": "2024-01-01T01:01:01Z"
       },
-      "com.background.ultra.yearly": {
+      "com.background.ultra1.monthly": {
         "expires_date": "9692-01-01T01:01:01Z",
         "original_purchase_date": "2024-01-01T01:01:01Z",
         "purchase_date": "2024-01-01T01:01:01Z"
@@ -69,7 +69,7 @@ var obj = {
       },
       "ultra": {
         "purchase_date": "2024-01-01T01:01:01Z",
-        "product_identifier": "com.background.ultra.yearly",
+        "product_identifier": "com.background.ultra1.monthly",
         "original_purchase_date": "2024-01-01T01:01:01Z",
         "expires_date": "9692-01-01T01:01:01Z"
       }
