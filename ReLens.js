@@ -1,9 +1,9 @@
 /*
 #!name=ReLens ✨
-#!desc=Relenspro Forever
+#!desc=Relens Forever
 #!category=🔐APP
 #!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
-#!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Bazaart.png
+#!icon=https://raw.githubusercontent.com/KawOat9/icons/main/ReLens.png
 𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
 [rewrite_local]
 ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/ReLens.js
