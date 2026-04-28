@@ -1,0 +1,28 @@
+#!name=BuyApp 𝕏
+#!desc=对 BuyApp 深度学习探索;
+#!openUrl=
+#!author=AppStore[https://apps.apple.com],revenuecat[https://www.revenuecat.com]
+#!icon=https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png
+#!date = 2022-05-00 00:00:00
+
+[Argument]
+itunes = switch, false, tag = [启用]iTunes内购, desc = 关闭开关将不对此选项生效
+#revenuecat = switch, false, tag = [启用]Revenuecat内购, desc = 关闭开关将不对此选项生效
+revenuecat = input, "baby已通杀! 艺术已成", tag = Reve解锁说明, desc = 仅说明无实际用途
+
+[Rewrite]
+^https:\/\/api\.revenuecat\.com\/.+\/(?:receipts|subscribers\/[^/]+(?:\/attributes)?)$ header https://reven.lovebabyforever.workers.dev
+^https:\/\/api\.revenuecat\.com\/.+\/(?:receipts|subscribers\/[^/]+(?:\/attributes)?)$ header https://reven.lovebabyforever.workers.dev
+^https:\/\/api\.rc-backup\.com\/.+\/(?:receipts|subscribers\/[^/]+(?:\/attributes)?)$ header https://reven.lovebabyforever.workers.dev
+^https:\/\/rc\.visionarytech\.ltd\/.+\/(?:receipts|subscribers\/[^/]+(?:\/attributes)?)$ header https://reven.lovebabyforever.workers.dev
+^https:\/\/revenue\.cuto\.app\/.+\/(?:receipts|subscribers\/[^/]+(?:\/attributes)?)$ header https://reven.lovebabyforever.workers.dev
+
+[Script]
+#http-request ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://he2o.vercel.app/Resource/Script/byapp.js, requires-body=true, timeout=60, tag=BuyiTunes_请求,enable={itunes}
+http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://he2o.vercel.app/Resource/Script/byapp.js, requires-body=true, timeout=60, tag=BuyiTunes_响应,enable={itunes}
+
+#http-request ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://he2o.vercel.app/Resource/Script/byapp.js, requires-body=true, timeout=60, tag=BuyRevenuecat_请求,enable={revenuecat}
+#http-response ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://he2o.vercel.app/Resource/Script/byapp.js, requires-body=true, timeout=60, tag=BuyRevenuecat_响应,enable={revenuecat}
+
+[Mitm]
+hostname = buy.itunes.apple.com, api.revenuecat.com,api.rc-backup.com
