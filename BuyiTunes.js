@@ -28,8 +28,6 @@ hostname = buy.itunes.apple.com
 
 ***********************************/
 
-
-
 var ddgksf2013 = JSON.parse($response.body);
 
 // ========= 动态ID ========= //
@@ -64,13 +62,17 @@ var productidmap={
 	'com.touchbits.subscriptions':['dyt','com.touchbits.subscriptions.iap.pro.yearly',0],
 	'dev.sanjin.WasteCat':['cat','dev.sanjin.WasteCat.PermanentVip',1],
 	'com.zerone.hidesktop':['iscreen','com.zerone.hidesktop.forever',0],
-	'co.bazaart.app':['bazaart','Bazaart_Premium_Monthly_v9',0],
+	'co.bazaart.app':['bazaart','Bazaart_Super_Three_Months_v4',0],
 	'com.pollykann.app':['pollykann','vip.forever.pollykann',1],
 	'org.zrey.money':['costmemo','org.zrey.money.lifetime',1],
 	'com.sfun.snapedit':['weikeMusic','com.moiseum.dailyart.subscription.Patron',0],
 	'com.polygitapp.polygit':['polygit','com.polygitapp.polygit.pro.yearly',0],
-	'com.sm.widget':['colorwidget','com.sm.widget.Pro',0]
-	
+	'com.sm.widget':['colorwidget','com.sm.widget.Pro',0],
+	'linsen.camera.app':['shiguangxiangji','linsen.camera.App.yearly',0],
+	'com.moiseum.dailyart':['dailyart','com.moiseum.dailyart.subscription.monthly',0],
+	'com.verycoolapp.epubreader':['epubreader','Epub Reader_ProVersion',1],
+	'com.daymore.Across':['daymore','com.daymore.across.lifetime',1],
+	'com.risingcabbage.pro.camera':['relens','com.risingcabbage.pro.camera.relensproforever',0]
 }
 
 // ========= 固定部分 ========= //
