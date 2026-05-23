@@ -1,10 +1,9 @@
 // ==UserScript==
-// @name               GitHub file list beautifier
-// @name:th            GitHub โปรแกรมตกแต่งรายการไฟล์
+// @name               GitHub File List Beautifier
 // @description        Adds colors to files by type, displays small images in place of file-type icons in a repository source tree
 // @description:th     GitHub File List Beautifier เป็นสคริปต์ผู้ใช้，ใช้เพื่อเพิ่มประสิทธิภาพ GitHub แสดงเอฟเฟกต์ของไฟล์ในคลังสินค้า
 // @license            MIT
-// @version            2026.5.23.4
+// @version            23.5.2026
 // @match              https://github.com/*
 // @run-at             document-idle
 // @grant              GM_getValue
