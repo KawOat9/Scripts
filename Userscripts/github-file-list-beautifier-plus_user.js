@@ -14,9 +14,8 @@
 // @compatible         edge
 // @compatible         opera
 // @compatible         safari
-// @author             wOxxOm,人民的勤务员,𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
-// @namespace          https://github.com/ChinaGodMan/UserScripts
-// @homepageURL        https://github.com/ChinaGodMan/UserScripts/tree/main/github-file-list-beautifier-plus
+// @author             𝗞𝗮𝘄𝗢𝗮𝘁✨
+// @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // ==/UserScript==
 
 'use strict';
