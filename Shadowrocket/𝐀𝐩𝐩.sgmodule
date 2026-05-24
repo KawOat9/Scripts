@@ -4,7 +4,15 @@
 #!Update=2025-07-22
 #!====================================
 #!⚠️【Header Rewrite】
-# X-RevenueCat-ETag
+
+[Header Rewrite]
+# RevenueCat Force Refresh (Delete ETag)
+# ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) = delete header X-RevenueCat-ETag
+# ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) = delete header x-revenuecat-etag
+
+# RevenueCat Force Refresh
+# ^https:\/\/api\.revenuecat\.com\/v\d+\/(receipts|subscribers.*)$ = delete header X-RevenueCat-ETag
+# ^https:\/\/api\.revenuecat\.com\/v\d+\/(receipts|subscribers.*)$ = delete header x-revenuecat-etag
 
 #!------------------------------------------
 

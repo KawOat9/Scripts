@@ -210,7 +210,7 @@ const mapping = {
   'Budgetify/': ['premium','budgetify_3999_lt'],
   'Dedupe/': ['Pro','com.curiouscreatorsco.Dedupe.pro.lifetime.notrial.39_99'],
   'Wozi': ['wozi_pro_2023'],
-  'blink': ['blink_shell_plus_1y_1999']
+  'Documents': ['com.readdle.ReaddleDocsIPad.subscription.month10_bf22']
 };
 
 // =========    固定部分  ========= // 
