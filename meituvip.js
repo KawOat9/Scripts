@@ -10,7 +10,7 @@ Original Source: https://github.com/zirawell/R-Store
 ^https?:\/\/((h5|api)\.xiuxiu|api-sub|api\.posters)\.meitu\.com\/.+\/(vip|user|h\d|center|home) url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/meituvip.js
 
 [mitm]
-hostname = *.xiuxiu.meitu.com, api.posters.meitu.com, api-sub.meitu.com,*.meitu.com
+hostname = *.xiuxiu.meitu.com, api.posters.meitu.com, api-sub.meitu.com
 *************************************/
 
 if (!$response.body) {
