@@ -1,3 +1,18 @@
+/*
+#!name = Truecaller ✨
+#!desc = Premium - Unlock
+#!author = 🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!icon = https://raw.githubusercontent.com/KawOat9/icons/main/StepsApp.png
+#!category=🔐APP
+𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
+[rewrite_local]
+# >Truecaller
+^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple) url script-response-body https://raw.githubusercontent.com/KawOat9/Scripts/main/Truecaller.js
+
+[mitm] 
+hostname = premium*.truecaller.com
+*/
+
 function findUrl(_reg) {
     if (_reg.test($request.url)) {
         return $request.url;
