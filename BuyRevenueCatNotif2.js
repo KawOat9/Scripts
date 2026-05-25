@@ -252,6 +252,16 @@ try {
     const [_key] = mapping[match];
     notifySuccess(_appName, _key);
   } else {
+    // แสดง entitlement keys จริงจาก response
+    try {
+      const _entKeys = Object.keys(obj['subscriber']['entitlements'] || {});
+      const _subKeys = Object.keys(obj['subscriber']['subscriptions'] || {});
+      $notification.post(
+        '🔍 Documents – Real Keys',
+        'Entitlements: ' + (_entKeys.length ? _entKeys.join(', ') : '(none)'),
+        'Subscriptions: ' + (_subKeys.length ? _subKeys.slice(0,3).join(', ') : '(none)')
+      );
+    } catch(_e2) {}
     notifyFailure(_ua);
   }
 } catch(_e) { /* silent fail */ }
