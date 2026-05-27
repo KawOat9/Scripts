@@ -30,8 +30,6 @@ hostname=api.revenuecat.com, api.rc-backup.com
 ***********************************/
 
 
-
-
 // ========= 动态ID ========= //
 const mapping = {
   'Subtracky': ['premium','premium_subtracky_lifetime'],
@@ -211,7 +209,8 @@ const mapping = {
   'Dedupe/': ['Pro','com.curiouscreatorsco.Dedupe.pro.lifetime.notrial.39_99'],
   'Wozi': ['wozi_pro_2023'],
   'Pocket%20Widgets/': ['lifetime'],
-  'Documents/': ['pro']
+  'Documents/': ['pro'],
+  'JellyCuts/': ['pro','premium']
 };
 
 // =========  Notification Functions  ========= //
