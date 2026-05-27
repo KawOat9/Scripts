@@ -73,7 +73,6 @@ var productidmap={
 	'com.verycoolapp.epubreader':['epubreader','Epub Reader_ProVersion',1],
 	'com.daymore.Across':['daymore','com.daymore.across.lifetime',1],
 	'com.risingcabbage.pro.camera':['relens','com.risingcabbage.pro.camera.relensproforever',0]
-	'com.network.internet.analyzer':
 }
 
 // ========= 固定部分 ========= //
