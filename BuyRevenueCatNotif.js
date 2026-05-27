@@ -210,7 +210,7 @@ const mapping = {
   'Wozi': ['wozi_pro_2023'],
   'Pocket%20Widgets/': ['lifetime'],
   'Documents/': ['pro'],
-  'JellyCuts/': ['pro','premium']
+  'Compare%20Text/7': ['pro','premium']
 };
 
 // =========  Notification Functions  ========= //
