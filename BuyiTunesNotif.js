@@ -90,10 +90,24 @@ try {
       `🔑 Product: ${matched[1]}`
     );
   } else {
+    // ดึง Product IDs จริงจาก receipt เพื่อ debug หา mapping ใหม่
+    const inApps = (
+      ddgksf2013 &&
+      ddgksf2013.receipt &&
+      ddgksf2013.receipt.in_app
+    ) || [];
+
+    const productIds = inApps
+      .map(i => i.product_id)
+      .filter(Boolean)
+      .filter((v, i, a) => a.indexOf(v) === i) // dedupe
+      .slice(0, 5)
+      .join('\n');
+
     $notification.post(
-      '⚠️ BuyiTunes',
-      'ไม่พบ App ใน map',
-      `BundleID: ${bundleId || 'Unknown'}`
+      '🔍 BuyiTunes — No Match (Debug)',
+      `📦 BundleID: ${bundleId || 'Unknown'}`,
+      productIds ? `🧾 Products:\n${productIds}` : '🧾 Products: (none found)'
     );
   }
 } catch(e) {
