@@ -210,7 +210,8 @@ const mapping = {
   'Budgetify/': ['premium','budgetify_3999_lt'],
   'Dedupe/': ['Pro','com.curiouscreatorsco.Dedupe.pro.lifetime.notrial.39_99'],
   'Wozi': ['wozi_pro_2023'],
-  'Pocket%20Widgets/': ['lifetime']
+  'Pocket%20Widgets/': ['lifetime'],
+  'Documents/': ['pro']
 };
 
 // =========  Notification Functions  ========= //
