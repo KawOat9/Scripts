@@ -1,0 +1,6 @@
+@ddm1023
+https://raw.githubusercontent.com/chxm1023/Script_X/main/ddm1023.boxjs.json
+
+@𝒃𝒂𝒃𝒚(Yu9191)
+https://reven.jsforbaby.workers.dev/reven/reven.boxjs.json
+https://raw.githubusercontent.com/Yu9191/Rewrite/main/pear.boxjs.json
