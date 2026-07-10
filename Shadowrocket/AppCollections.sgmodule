@@ -1,0 +1,56 @@
+#!name=App Collections ✨
+#!desc=Collections by 𝗞𝗮𝘄𝗢𝗮𝘁ツ
+#!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Collections.png
+#!category=🔐APP Collections
+
+[URL Rewrite]
+# > Goodnotes6 hostname = isi.csan.goodnotes.com.*, isi.csan.goodnotes.com
+^https:\/\/isi\.csan\.goodnotes.*\/v1\/subscribers\/[a-f0-9\-]{36}$ https://goodenotes6.lovebabyforever.workers.dev/ header
+
+[Script]
+# > Aloha hostname = api.alohaprofile.com
+AlohaPremium = type=http-response, pattern=^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/AlohaPremium.js, requires-body=true, max-size=-1, timeout=60
+
+# > AppRaven hostname = appraven.net
+AppRaven = type=http-response, pattern=^https:\/\/appraven\.net\/appraven\/graphql, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/AppRaven.js, requires-body=true, max-size=-1, timeout=60
+
+# > Owlfiles hostname = *.skyjos.com:58080
+Owlfiles = type=http-response, pattern=^https?:\/\/www\.skyjos\.com(?::58080)?\/ws\/(?:validate|loadaccountinfo)\b, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Owlfiles.js, requires-body=true, max-size=-1, timeout=60
+
+# > Picsart hostname = api.picsart.com
+Picsart = type=http-request, pattern=https://api.picsart.com/gw-v2/shop/subscription/apple/purchases, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Picsart.js, requires-body=true, max-size=-1, timeout=60
+
+# > Polarr hostname = api.polarr.co
+Polarr = type=http-response, pattern=^https:\/\/api\.polarr\.co\/v1\/payments\/(appleiap\/receipts\/confirmation|profiles\/@me\/subscription), script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Polarr.js, requires-body=true, max-size=-1, timeout=60
+
+# > SNOW Corporation ✨ hostname = *.snow.me
+# > user-snow-api.snow.me
+SNOW-Ai = type=http-response, pattern=^https:\/\/user-snow-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > user-b612-api.snow.me
+B612 = type=http-response, pattern=^https:\/\/user-b612-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > purchase-foodie-api.snow.me
+SODA = type=http-response, pattern=^https:\/\/purchase-soda-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > purchase-soda-api.snow.me
+Foodie = type=http-response, pattern=^https:\/\/purchase-foodie-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > purchase-epik-api.snow.me
+EPIK = type=http-response, pattern=^https:\/\/purchase-epik-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > purchase-linecamera-api.snow.me
+LINECamera = type=http-response, pattern=^https:\/\/purchase-linecamera-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > purchase-glowup-api.snow.me
+GlowUp = type=http-response, pattern=^https:\/\/purchase-glowup-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$, script-path=https://raw.githubusercontent.com/czy13724/Quantumult-X/main/scripts/snow.js, requires-body=true, max-size=-1, timeout=60
+
+# > Truecaller hostname = premium*.truecaller.com
+Truecaller = type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple),requires-body=1,script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Truecaller.js
+
+# > WindyCom hostname = account.windy.com
+WindyCom = type=http-response, pattern=^https?:\/\/account\.windy\.com\/api\/info, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/WindyCom.js, requires-body=true, max-size=-1, timeout=60
+
+[MITM]
+hostname = %APPEND% isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com
