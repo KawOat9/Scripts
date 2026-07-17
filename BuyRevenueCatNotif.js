@@ -209,8 +209,7 @@ const mapping = {
   'Dedupe/': ['Pro','com.curiouscreatorsco.Dedupe.pro.lifetime.notrial.39_99'],
   'Wozi': ['wozi_pro_2023'],
   'Pocket%20Widgets/': ['Subscription','com.niko.PocketWidgetsApp.lifetimePlus'],
-  'Reqable': ['vip_lifetime'],
-  'Compare%20Text/7': ['pro','premium']
+  'Documents': ['subscription','com.readdle.ReaddleDocsIPad.subscription.month19_ultra']
 };
 
 // =========  Notification Functions  ========= //
