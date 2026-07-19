@@ -66,13 +66,14 @@ var productidmap={
 	'com.pollykann.app':['pollykann','vip.forever.pollykann',1],
 	'org.zrey.money':['costmemo','org.zrey.money.lifetime',1],
 	'com.sfun.snapedit':['weikeMusic','com.moiseum.dailyart.subscription.Patron',0],
-	'com.polygitapp.polygit':['polygit','com.polygitapp.polygit.pro.yearly',0],
+	'com.polygitapp.polygit':['polygit','com.polygitapp.polygit.pro.lifetime',0],
 	'com.sm.widget':['colorwidget','com.sm.widget.Pro',0],
 	'linsen.camera.app':['shiguangxiangji','linsen.camera.App.yearly',0],
 	'com.moiseum.dailyart':['dailyart','com.moiseum.dailyart.subscription.monthly',0],
 	'com.verycoolapp.epubreader':['epubreader','Epub Reader_ProVersion',1],
 	'com.daymore.Across':['daymore','com.daymore.across.lifetime',1],
-	'com.risingcabbage.pro.camera':['relens','com.risingcabbage.pro.camera.relensproforever',0]
+	'com.risingcabbage.pro.camera':['relens','com.risingcabbage.pro.camera.relensproforever',0],
+	'com.textasticapp.textastic-':['Textastic','com.textasticapp.pro.oneTime',0]
 };
 
 // ========= 固定部分 ========= //
