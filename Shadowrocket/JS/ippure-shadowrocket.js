@@ -1,7 +1,8 @@
 // IP-Pure Node Info for Shadowrocket
 // Adapted from Quantumult X version
 
-const url = "https://my.ippure.com/v1/info";
+//const url = "https://my.ippure.com/v1/info";
+const url = "https://my.123169.xyz/v1/info";
 const headers = {
   "User-Agent":
     "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
