@@ -21,6 +21,9 @@ Owlfiles = type=http-response, pattern=^https?:\/\/www\.skyjos\.com(?::58080)?\/
 # > Picsart hostname = api.picsart.com
 Picsart = type=http-request, pattern=https://api.picsart.com/gw-v2/shop/subscription/apple/purchases, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Picsart.js, requires-body=true, max-size=-1, timeout=60
 
+# > iLovePDF hostname = service.ilovepdf.com
+iLovePDF = type=http-response,pattern=https:\/\/service\.ilovepdf\.com\/v1\/user, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/ilovepdf.js, requires-body=true, max-size=-1, timeout=60
+
 # > Polarr hostname = api.polarr.co
 Polarr = type=http-response, pattern=^https:\/\/api\.polarr\.co\/v1\/payments\/(appleiap\/receipts\/confirmation|profiles\/@me\/subscription), script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Polarr.js, requires-body=true, max-size=-1, timeout=60
 
@@ -53,4 +56,4 @@ Truecaller = type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v
 WindyCom = type=http-response, pattern=^https?:\/\/account\.windy\.com\/api\/info, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/WindyCom.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND% isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com
+hostname = %APPEND% service.ilovepdf.com, isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com
