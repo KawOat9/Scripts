@@ -55,5 +55,8 @@ Truecaller = type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v
 # > WindyCom hostname = account.windy.com
 WindyCom = type=http-response, pattern=^https?:\/\/account\.windy\.com\/api\/info, script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/WindyCom.js, requires-body=true, max-size=-1, timeout=60
 
+# > flightradar24 hostname = mobile.flightradar24.com
+flightradar24 = type=http-response, pattern=^https://mobile.flightradar24.com/mobile/(user-session|subscribe), script-path=https://raw.githubusercontent.com/Mikephie/Script/main/qx/flightradar24.js, requires-body=true, max-size=-1, timeout=60
+
 [MITM]
-hostname = %APPEND% service.ilovepdf.com, isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com
+hostname = %APPEND% service.ilovepdf.com, isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com, mobile.flightradar24.com
