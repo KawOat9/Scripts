@@ -1,0 +1,181 @@
+dns: {}
+header_rewrites:
+- delete:
+    match: ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$)
+    name: X-RevenueCat-ETag
+    type: request
+- delete:
+    match: ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$)
+    name: x-revenuecat-etag
+    type: request
+scriptings:
+- http_response:
+    name: AppRCTesters
+    match: ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$)
+    script_url: https://apptesters.org/egern/AutoRC.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppAdTesters
+    match: https://api.adapty.io/api/v1/sdk/analytics/profiles
+    script_url: https://apptesters.org/egern/Adapty.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppFMTesters
+    match: https://order.creativeappnow.com/iap/receipt
+    script_url: https://apptesters.org/egern/Facemoji.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppReTesters
+    match: https:\/\/license\.pdfexpert\.com\/api\/2\.0\/(calendarslite|pdfexpert6|documents)\/subscription\/(refresh|check)
+    script_url: https://apptesters.org/egern/readdle.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppitTesters
+    match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+    script_url: https://apptesters.org/egern/iTunes.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppMuTesters
+    match: us-central1-muslim-pro-app.cloudfunctions.net/GetUserPremiumInfo
+    script_url: https://apptesters.org/egern/MuslimPro.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppGrTesters
+    match: ^https?:\/\/subscription\.grammarly\.com\/api\/v1\/subscription$
+    script_url: https://apptesters.org/egern/Grammarly.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppeSTesters
+    match: api.esound.app/account
+    script_url: https://apptesters.org/egern/eSound.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppPurTesters
+    match: https://api.purchasely.io/paab/user_purchases
+    script_url: https://apptesters.org/egern/purchasely.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppVaTesters
+    match: prod.studysmarter.de/payments/info
+    script_url: https://apptesters.org/egern/Vaia.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppQOTesters
+    match: api.qonversion.io/v1/user/init
+    script_url: https://apptesters.org/egern/qonversion.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppDJTesters
+    match: https://api.mwm-users.com/me/features
+    script_url: https://apptesters.org/egern/edjingMix.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppVCTesters
+    match: https://api-fra.vivacut.com/api/rest/commerce/integrate/vip/perform
+    script_url: https://apptesters.org/egern/VivaCut.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppCaTesters
+    match: https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId
+    script_url: https://apptesters.org/egern/Carrot.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppKineTesters
+    match: https://api-account.kinemasters.com/v2/user/subscribe
+    script_url: https://apptesters.org/egern/KineMaster.js
+    update_interval: 5
+    body_required: true
+- http_request:
+    name: AppPicTesters
+    match: https://api.picsart.com/gw-v2/shop/subscription/apple/purchases
+    script_url: https://apptesters.org/egern/PicsArt.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppAMTesters
+    match: https://us-central1-alight-creative.cloudfunctions.net/getAccountStatusAndLicenses
+    script_url: https://apptesters.org/egern/AlightMotion.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppSaTesters
+    match: api.sandbox.love/accounts/current
+    script_url: https://apptesters.org/egern/SandBox.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppSSesters
+    match: subscriptions.songshift.com/validate
+    script_url: https://apptesters.org/egern/SongShift.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppADBTesters
+    match: api.adblockpro.app/verify
+    script_url: https://apptesters.org/egern/AdblockPro.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppADGTesters
+    match: ^https:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receipt\/(.*?)
+    script_url: https://apptesters.org/egern/AdGuardPro.js
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppDTesters
+    match: ILoveDevTheDev.com
+    script_url: https://URL2Script.com
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppDTesters
+    match: ILoveDevTheDev.com
+    script_url: https://URL2Script.com
+    update_interval: 5
+    body_required: true
+- http_response:
+    name: AppDTesters
+    match: ILoveDevTheDev.com
+    script_url: https://URL2Script.com
+    update_interval: 5
+    body_required: true
+mitm:
+  ca_p12: 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
+  ca_passphrase: egern
+# default_subscription_group: Subscription
+# default_proxy_group: PROXY
+  hostnames:
+    includes:
+    - api.revenuecat.com
+    - buy.itunes.apple.com
+    - api.picsart.com
+    - api-account.kinemasters.com
+    - us-central1-alight-creative.cloudfunctions.net
+    - api.adapty.io
+    - carrotweather.herokuapp.com
+    - order.creativeappnow.com
+    - api.mwm-users.com
+    - us-central1-muslim-pro-app.cloudfunctions.net
+    - prod.studysmarter.de
+    - api.qonversion.io
+    - subscription.grammarly.com
+    - api.esound.app
+    - api.purchasely.io
+    - api.sandbox.love
+    - subscriptions.songshift.com
+    - api.adblockpro.app
+    - mobile-api.adguard.org
