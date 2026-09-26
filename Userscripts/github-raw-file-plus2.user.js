@@ -4,11 +4,11 @@
 // @description        Add buttons at the end of each file line to copy the raw file URL and download the file
 // @description:th     เพิ่มปุ่มที่ท้ายแต่ละบรรทัดไฟล์，เพื่อคัดลอกไฟล์ต้นฉบับ URL และดาวน์โหลดไฟล์
 // @namespace          https://github.com/ChinaGodMan/UserScripts
-// @version            2.3.0.1
+// @version            3.0.0
 // @author             𝗞𝗮𝘄𝗢𝗮𝘁✨
 // @match              https://github.com/*
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
-// @run-at             document-ready
+// @run-at             document-end
 // @license            MIT
 // @homepageURL        https://github.com/ChinaGodMan/UserScripts
 // ==/UserScript==
