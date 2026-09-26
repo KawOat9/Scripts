@@ -5,7 +5,7 @@
 // @description:th     เพิ่มปุ่มที่ท้ายแต่ละบรรทัดไฟล์，เพื่อคัดลอกไฟล์ต้นฉบับ URL และดาวน์โหลดไฟล์
 // @namespace          https://github.com/ChinaGodMan/UserScripts
 // @version            2.3.0.1
-// @author             Kamikaze , 𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @author             𝗞𝗮𝘄𝗢𝗮𝘁✨
 // @match              https://github.com/*
 // @icon               https://raw.githubusercontent.com/KawOat9/icons/main/Git/ChinaGodMan.png
 // @run-at             document-ready

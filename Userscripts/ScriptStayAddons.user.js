@@ -1,16 +1,17 @@
 // ==UserScript==
 // @name         Addons & Stay Script Installer
-// @version      0.1.0
+// @version      0.2.0
 // @description  Add "Stay" & "Addons" buttons to Greasy Fork / Sleazy Fork pages
-// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @author       𝗞𝗮𝘄𝗢𝗮𝘁✨
 // @exclude      *://greasyfork.org/*/scripts?q=*
 // @exclude      *://greasyfork.org/*/scripts/by-site/*
 // @exclude      *://sleazyfork.org/*/scripts?q=*
 // @exclude      *://sleazyfork.org/*/scripts/by-site/*
 // @match        *://greasyfork.org/*/scripts/*
 // @match        *://sleazyfork.org/*/scripts/*
-// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/addons_scripts.png
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/addstay.png
 // @updateURL    
+// @run-at       document-idle
 // @grant        none
 // ==/UserScript==
 (function() {
