@@ -3,7 +3,7 @@
 // @namespace    GitHub / Script-Hub
 // @version      5.0.0
 // @description  Add a button to show raw links for GitHub repository files
-// @author       𝒦𝒶𝓌𝒪𝒶𝓉 (KawOat) ✨
+// @author       𝗞𝗮𝘄𝗢𝗮𝘁✨
 // @match        https://github.com/*
 // @match        https://script.hub/*
 // @match        http://script.hub/*
