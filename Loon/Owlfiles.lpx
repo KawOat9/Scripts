@@ -1,18 +1,11 @@
-#!name=Owlfiles
-#!desc=Owlfiles+Unlock VIP
-#!author=@KawOatツ
-#!icon=https://raw.githubusercontent.com/deezertidal/private/main/icons/mtywj.png
-
-[Argument]
-OwlfilesScriptEnable-chxm1023 = switch, true, false, tag = Owlfiles-chxm1023, desc = 是否启用chxm1023的脚本来解锁Owlfiles系列
-OwlfilesScriptEnable-89996462 = switch, true, false, tag = Owlfiles-89996462, desc = 是否启用89996462的脚本来解锁Owlfiles系列
+#!name=Owlfiles ✨
+#!desc=FTP/SFTP Server - File Manager
+#!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Owlfiles.png
+#!tag=🔐APP
 
 [Script]
-# chxm1023
-http-response ^https:\/\/www\.skyjos\.com script-path = https://raw.githubusercontent.com/chxm1023/Rewrite/main/mtywj.js, requires-body = true, tag = [Owlfiles]解锁会员系列, enable={OwlfilesScriptEnable-chxm1023}
+http-response ^https?:\/\/www\.skyjos\.com(?::58080)?\/ws\/(?:validate|loadaccountinfo)\b script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Owlfiles.js, requires-body=true, timeout=60, tag=Owlfiles
 
-# 89996462
-http-response ^https:\/\/www\.skyjos\.com:58080\/ws\/loadaccountinfo script-path = https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/mtywj.js, requires-body = true, tag = [Owlfiles]解锁会员系列, enable={OwlfilesScriptEnable-89996462}
-
-[MitM]
-hostname = www.skyjos.com
+[MITM]
+hostname = *.skyjos.com:58080
