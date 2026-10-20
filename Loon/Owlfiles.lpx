@@ -3,6 +3,7 @@
 #!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
 #!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Owlfiles.png
 #!tag=🔐APP
+#!openUrl=https://apps.apple.com/app/id510282524
 
 [Script]
 http-response ^https?:\/\/www\.skyjos\.com(?::58080)?\/ws\/(?:validate|loadaccountinfo)\b script-path=https://raw.githubusercontent.com/KawOat9/Scripts/main/Owlfiles.js, requires-body=true, timeout=60, tag=Owlfiles

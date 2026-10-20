@@ -3,6 +3,7 @@
 #!desc=FTP
 #!category=🔐APP
 #!author=🅚Ⓐ🅦Ⓞ🅐Ⓣ
+#!openUrl=https://apps.apple.com/app/id510282524
 #!icon=https://raw.githubusercontent.com/KawOat9/icons/main/Owlfiles.png
 𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
 [rewrite_local]
