@@ -4,7 +4,7 @@
 // @version      1.1
 // @author       𝗞𝗮𝘄𝗢𝗮𝘁✨
 // @description  Expand video horizontally without increasing height
-// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/addons_scripts.png
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/hvz_icon.png
 // @match        *://*/*
 // @run-at       document-idle
 // @grant        none
