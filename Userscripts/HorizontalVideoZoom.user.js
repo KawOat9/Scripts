@@ -2,8 +2,9 @@
 // @name         Horizontal Video Zoom
 // @namespace    local.video.zoom
 // @version      1.0
-// @description  Expand video horizontally without increasing height
 // @author       𝗞𝗮𝘄𝗢𝗮𝘁✨
+// @description  Expand video horizontally without increasing height
+// @icon         https://raw.githubusercontent.com/KawOat9/icons/main/addons_scripts.png
 // @match        *://*/*
 // @run-at       document-idle
 // ==/UserScript==
