@@ -6,7 +6,7 @@
 
 [URL Rewrite]
 # > Goodnotes6 hostname = isi.csan.goodnotes.com.*, isi.csan.goodnotes.com
-^https:\/\/isi\.csan\.goodnotes.*\/v1\/subscribers\/[a-f0-9\-]{36}$ https://goodenotes6.lovebabyforever.workers.dev/ header
+# ^https:\/\/isi\.csan\.goodnotes.*\/v1\/subscribers\/[a-f0-9\-]{36}$ https://goodenotes6.lovebabyforever.workers.dev/ header
 
 [Script]
 # > Aloha hostname = api.alohaprofile.com
@@ -59,4 +59,4 @@ WindyCom = type=http-response, pattern=^https?:\/\/account\.windy\.com\/api\/inf
 flightradar24 = type=http-response, pattern=^https://mobile.flightradar24.com/mobile/(user-session|subscribe), script-path=https://raw.githubusercontent.com/Mikephie/Script/main/qx/flightradar24.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND% service.ilovepdf.com, isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, account.windy.com, mobile.flightradar24.com
+hostname = %APPEND% service.ilovepdf.com, isi.csan.goodnotes.com.*, isi.csan.goodnotes.com, api.alohaprofile.com, appraven.net, *.skyjos.com:58080, api.picsart.com, api.polarr.co, *.snow.me, premium*.truecaller.com, account.windy.com, mobile.flightradar24.com
